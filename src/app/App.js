@@ -22,9 +22,9 @@ function App() {
   // };
 
   const [tasks, setTasks] = useState([
-    { text: 'Do the dishes', urgent:true, completed: true, dueDate: "2020 - 04 - 01" },
-    { text: 'Walk the dog', urgent: false, completed: false, dueDate: "2020 - 04 - 02" },
-    { text: 'Buy a new mat', urgent: true, completed: true, dueDate: "2020 - 04 - 03" }
+    { text: 'Homework', urgent:true, completed: true, dueDate: "2020-04-01" },
+    { text: 'Grocery', urgent: false, completed: false, dueDate: "2020-04-02" },
+    { text: 'Buy a new mat', urgent: true, completed: true, dueDate: "2020-04-03" }
   ]);
   return (
     <div className="App">
