@@ -22,9 +22,9 @@ function App() {
   // };
 
   const [tasks, setTasks] = useState([
-    { text: 'Homework', urgent:true, completed: true, dueDate: "2020-04-01" },
-    { text: 'Grocery', urgent: false, completed: false, dueDate: "2020-04-02" },
-    { text: 'Buy a new mat', urgent: true, completed: true, dueDate: "2020-04-03" }
+    { text: 'Homework', tag:'learning', urgent:true, completed: true, dueDate: "2020-04-01" },
+    { text: 'Grocery', tag:'home',urgent: false, completed: false, dueDate: "2020-04-02" },
+    { text: 'Buy a new mat', tag:'home', urgent: true, completed: true, dueDate: "2020-04-03" }
   ]);
   return (
     <div className="App">
@@ -38,7 +38,7 @@ function App() {
         <div className="container">
           {/* Passing a prop of text to each Task component */}
           {tasks.map(function (task) {
-            return <Task text={task.text} urgent={task.urgent} completed={task.completed} dueDate={task.dueDate}/>
+            return <Task text={task.text} tag={task.tag} urgent={task.urgent} completed={task.completed} dueDate={task.dueDate}></Task>
           })}
         </div>
       </main>

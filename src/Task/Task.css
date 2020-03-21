@@ -2,17 +2,27 @@
 .container{
     margin-top: 30px;
 }
-.container p, .col-md-2{
-    margin-top: 18px;
+.container p, .col-md-3{
     color: black;
+}
+.container p, .col-md-4, .col-md-3, .col-md-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-md-4, .col-md-3{
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    background-color: lightgrey;
 }
 .row{
     border: 2px solid lightgrey;
     border-radius: 10px;
     background-color: white;
+    margin-bottom: -25px;
 }
 
-.btn, .bi-trash-fill, .bi-pencil {
+.bi-trash-fill, .bi-pencil {
     margin-top:10px;
     margin-bottom: 10px;
 }
