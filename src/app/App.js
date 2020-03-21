@@ -9,17 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  // //0 - this number is 1 piece of state I want to keep track of
-  // let [counter, setCounter] = useState(0);//Array descruturing
-
-  // function increaseCounterBy1() {
-  //   setCounter(counter + 1)
-  // };
-  // function decreaseCounterBy1() {
-  //   if (counter > 0) {
-  //     setCounter(counter - 1)
-  //   }
-  // };
 
   const [tasks, setTasks] = useState([
     { text: 'Homework', tag:'learning', urgent:true, completed: true, dueDate: "2020-04-01" },
@@ -30,15 +19,19 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        {/* <h4>{counter}</h4> */}
-        {/* <button onClick={increaseCounterBy1}>Increase counter</button>
-        <button onClick={decreaseCounterBy1}>Decrease counter</button> */}
-
         <TaskCount count={tasks.length} />
         <div className="container">
           {/* Passing a prop of text to each Task component */}
           {tasks.map(function (task) {
-            return <Task text={task.text} tag={task.tag} urgent={task.urgent} completed={task.completed} dueDate={task.dueDate}></Task>
+            return (
+              <Task 
+              text={task.text} 
+              tag={task.tag} 
+              urgent={task.urgent} 
+              completed={task.completed} 
+              dueDate={task.dueDate}
+              />
+            );
           })}
         </div>
       </main>

@@ -19,14 +19,14 @@ function Task(props) {
                     </button>
                 </div>
                 <div className="col-md-1">
-                    <button type="button" class="btn btn-danger">
+                    {props.urgent === true ? <button type="button" class="btn btn-danger">
                         Urgent
-                    </button>
+                    </button>: ""}
                 </div>
                 <div className="col-md-1">
-                    <button type="button" class="btn btn-success">
+                    {props.completed === true? <button type="button" class="btn btn-success">
                         Done
-                    </button>
+                    </button>: ""}
                 </div>
                 <div className="col-md-1">
                     <svg class="bi bi-trash-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
