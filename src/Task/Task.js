@@ -11,7 +11,7 @@ function Task(props) {
                     <p>{props.text}</p>
                 </div>
                 <div className="col-4 col-md-3">
-                    {moment(props.dueDate).format('MM/DD/YY')}
+                    {moment(props.dueDate).format('MM.DD.YYYY')}
                 </div>
                 <div className="col-3 col-md-1">
                     <button type="button" class="btn btn-info">

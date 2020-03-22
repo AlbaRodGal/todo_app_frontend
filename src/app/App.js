@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
+  const[counter, setCounter] = useState(0);
 
   const [tasks, setTasks] = useState([
     { text: 'Homework', tag:'learning', urgent:true, completed: true, dueDate: "2020-04-01" },
@@ -19,6 +20,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
+        
         <TaskCount count={tasks.length} />
         <div className="container">
           {/* Passing a prop of text to each Task component */}
