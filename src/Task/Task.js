@@ -7,11 +7,11 @@ function Task(props) {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-8 col-md-4">
+                <div className="task col-8 col-md-4">
                     <p>{props.text}</p>
                 </div>
-                <div className="col-4 col-md-3">
-                    {moment(props.dueDate).format('MM.DD.YYYY')}
+                <div className="date col-4 col-md-3">
+                    {moment(props.dueDate).format('ddd, MMM Do')}
                 </div>
                 <div className="col-3 col-md-1">
                     <button type="button" class="btn btn-info">

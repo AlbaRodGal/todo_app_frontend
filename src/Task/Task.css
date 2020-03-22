@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
 }
-.col-md-4, .col-md-3{
+.task, .date{
     border: 2px solid whitesmoke;
     border-radius: 10px;
     background-color: lightgrey;

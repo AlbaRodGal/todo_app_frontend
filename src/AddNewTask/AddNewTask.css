@@ -1,0 +1,8 @@
+.form-control, .dropdown-toggle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4{
+    display: flex;
+    justify-content: center;
+}
