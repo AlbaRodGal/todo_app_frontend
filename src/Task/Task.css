@@ -5,7 +5,7 @@
 .container p, .col-md-3{
     color: black;
 }
-.container p, .col-md-4, .col-md-3, .col-md-1{
+.container p, .col-md-4, .col-md-3, .col-md-1, .col-md-2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,9 @@
     width: 2rem;
     height: 2rem;
 }
-@media only screen and (max-width: 420px), (max-width: 745px){
-    
+
+@media only screen and (max-width: 450px){
+    body{
+        font-size: smaller;
+    }
 }
