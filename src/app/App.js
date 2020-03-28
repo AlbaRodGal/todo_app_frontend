@@ -20,11 +20,12 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        
         <TaskCount count={tasks.length} />
+        
         <div className="container">
           <AddNewTask />
         </div>
+        
         <div className="container">
           {/* Passing a prop of text to each Task component */}
           {tasks.map(function (task) {

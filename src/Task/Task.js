@@ -1,6 +1,8 @@
 import React from "react";
 import "./Task.css";
 import moment from "moment";
+import CompletedTaskButton from "../CompletedTaskButton/CompletedTaskButton";
+
 
 function Task(props) {
     //props = {text: "Do the dishes"}
@@ -19,14 +21,10 @@ function Task(props) {
                     </button>
                 </div>
                 <div className="col-3 col-md-2 col-lg-1">
-                    {props.urgent === true ? <button type="button" class="btn btn-danger">
-                        Urgent
-                    </button>: ""}
+                    {props.urgent === true ? <button type="button" class="btn btn-danger">Urgent</button> : ""}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
-                    {props.completed === true? <button type="button" class="btn btn-success">
-                        Done
-                    </button>: ""}
+                    {props.completed === true? <CompletedTaskButton />: ""}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <svg class="bi bi-trash-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
