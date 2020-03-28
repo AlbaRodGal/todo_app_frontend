@@ -2,7 +2,7 @@ import React from "react";
 
 function UrgentTaskButton(){
     return(
-        <button type="button" class="btn btn-danger">Urgent</button>
+        <button type="button" className="btn btn-danger">Urgent</button>
     )
 }
 
