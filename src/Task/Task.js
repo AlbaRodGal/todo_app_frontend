@@ -25,10 +25,10 @@ function Task(props) {
                     </button>
                 </div>
                 <div className="col-3 col-md-2 col-lg-1">
-                    {props.urgent === true ? <UrgentTaskButton />: ""}
+                    {props.urgent === true ? <UrgentTaskButton /> : ""}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
-                    {props.completed === true? <CompletedTaskButton />: ""}
+                    {props.completed === true ? <CompletedTaskButton /> : ""}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <DeleteTaskButton />

@@ -1,5 +1,8 @@
 import React from "react";
 import "./AddNewTask.css";
+import "../UrgentTaskButton/UrgentTaskButton"
+import "../PriorityDropdownButton/PriorityDropdownButton"
+import PriorityDropdownButton from "../PriorityDropdownButton/PriorityDropdownButton";
 
 function AddNewTask() {
     return <div className="row m-1">
@@ -24,18 +27,7 @@ function AddNewTask() {
                 </div>
             </div>
             <div className="col-4 col-sm-2 col-md-2 col-lg-2">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Priority
-                </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Urgent</a>
-                        <a class="dropdown-item" href="#">Medium</a>
-                        <a class="dropdown-item" href="#">Low</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                </div>
+                    <PriorityDropdownButton />
             </div>
             <div className="col-4 col-sm-2 col-md-1 col-lg-2">
                 <button class="btn btn-secondary add">Add</button>
