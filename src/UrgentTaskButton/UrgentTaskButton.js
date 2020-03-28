@@ -1,9 +1,9 @@
 import React from "react";
 
-function UrgentButton(){
+function UrgentTaskButton(){
     return(
         <button type="button" class="btn btn-danger">Urgent</button>
     )
 }
 
-export default UrgentButton;
+export default UrgentTaskButton;
