@@ -3,6 +3,7 @@ import "./AddNewTask.css";
 import "../UrgentTaskButton/UrgentTaskButton"
 import "../PriorityDropdownButton/PriorityDropdownButton"
 import PriorityDropdownButton from "../PriorityDropdownButton/PriorityDropdownButton";
+import CategoryDropdownButton from "../CategoryDropdownButton/CategoryDropdownButton";
 
 function AddNewTask() {
     return <div className="row m-1">
@@ -13,18 +14,7 @@ function AddNewTask() {
                 <input type="date" className="form-control" />
             </div>
             <div className="col-4 col-sm-3 col-md-2 col-lg-2">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-            </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Home</a>
-                        <a class="dropdown-item" href="#">Learning</a>
-                        <a class="dropdown-item" href="#">Work</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                </div>
+                <CategoryDropdownButton />
             </div>
             <div className="col-4 col-sm-2 col-md-2 col-lg-2">
                     <PriorityDropdownButton />
