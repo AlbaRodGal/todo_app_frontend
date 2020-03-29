@@ -5,15 +5,20 @@ import CompletedTaskButton from "../CompletedTaskButton/CompletedTaskButton";
 import DeleteTaskButton from "../DeleteTaskButton/DeleteTaskButton";
 import UrgentTaskButton from "../UrgentTaskButton/UrgentTaskButton";
 import EditTaskButton from "../EditTaskButton/EditTaskButton";
+import NotCompletedTaskButton from "../NotCompletedTaskButton/NotCompletedTaskButton";
 
 
 const Task = props => {
 
-    const handleClick = () => {
-        console.log("Delete button was clicked");
-        console.log(props.id)
+    const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id)
     };
+
+    const handleCompleteClick = () => {
+        console.log(props.completed)
+        props.completeTaskFunc(props.id)
+    }
+
 
     return (
         <div className="container">
@@ -33,13 +38,14 @@ const Task = props => {
                     {props.urgent === true ? <UrgentTaskButton /> : ""}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
-                    {props.completed === true ? <CompletedTaskButton /> : ""}
+                    <div onClick={handleCompleteClick}>
+                        {props.completed === true ? <CompletedTaskButton /> : <NotCompletedTaskButton />}
+                    </div>
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
-                    <button onClick={handleClick}>
-                        <svg className="bi bi-trash-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M2.5 1a1 1 0 00-1 1v1a1 1 0 001 1H3v9a2 2 0 002 2h6a2 2 0 002-2V4h.5a1 1 0 001-1V2a1 1 0 00-1-1H10a1 1 0 00-1-1H7a1 1 0 00-1 1H2.5zm3 4a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7a.5.5 0 01.5-.5zM8 5a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7A.5.5 0 018 5zm3 .5a.5.5 0 00-1 0v7a.5.5 0 001 0v-7z" clipRule="evenodd" /></svg>
-                    </button>
+                    <div onClick={handleDeleteClick}>
+                        <DeleteTaskButton />
+                    </div>
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <EditTaskButton />

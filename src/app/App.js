@@ -17,16 +17,30 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const [tasks, setTasks] = useState([
-    { text: 'Homework', tag: 'learning', urgent: true, completed: true, dueDate: "2020-04-01", id: 1 },
+    { text: 'Homework', tag: 'learning', urgent: true, completed: false, dueDate: "2020-04-01", id: 1 },
     { text: 'Grocery', tag: 'home', urgent: false, completed: false, dueDate: "2020-04-02", id: 2 },
-    { text: 'Buy a new mat', tag: 'home', urgent: true, completed: true, dueDate: "2020-04-03", id: 3 }
+    { text: 'Buy a new mat', tag: 'home', urgent: true, completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
   const deleteTask = (id) => {
-    const filteredTasks = tasks.filter(task => task.id === id ? false : true)
+    const filteredTasks = tasks.filter(task => task.id !== id);
 
     setTasks(filteredTasks);
   }
+  const completeTask = (id) => {
+    const newTasks = tasks.map(task => {
+        if(task.id === id){
+          task.completed = true
+        }
+        return task;
+      })
+      setTasks(newTasks);
+  }
+
+  //Click on the complete button
+    //Our application needs to know this happens
+    //Which button was clicked? ID
+    //Updates the relevant task in our state (completed = true)
 
   return (
     <div className="App">
@@ -45,6 +59,7 @@ function App() {
               <Task
                 key={task.id}
                 deleteTaskFunc={deleteTask}
+                completeTaskFunc={completeTask}
                 text={task.text}
                 tag={task.tag}
                 urgent={task.urgent}
