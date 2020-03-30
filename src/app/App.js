@@ -35,7 +35,7 @@ function App() {
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
-      date: date,
+      dueDate: date,
       category: category,
       priority: priority,
       id: Math.random() * 1000
