@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./AddNewTask.css";
-import "../UrgentTaskButton/UrgentTaskButton"
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import AddTaskButton from "../AddTaskButton/AddTaskButton";
 
@@ -26,7 +25,6 @@ const AddNewTask = (props) => {
     }
 
     const handleCategoryChange = (event) => {
-        console.log(event.target.value)
         setCategory(event.target.value)
     }
 
@@ -41,7 +39,6 @@ const AddNewTask = (props) => {
     }
 
     const handlePriorityChange = (event) => {
-        console.log(event.target.value)
         setPriority(event.target.value)
     }
 

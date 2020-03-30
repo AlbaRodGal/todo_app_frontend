@@ -3,7 +3,6 @@ import "./Task.css";
 import moment from "moment";
 import CompletedTaskButton from "../CompletedTaskButton/CompletedTaskButton";
 import DeleteTaskButton from "../DeleteTaskButton/DeleteTaskButton";
-import UrgentTaskButton from "../UrgentTaskButton/UrgentTaskButton";
 import EditTaskButton from "../EditTaskButton/EditTaskButton";
 import NotCompletedTaskButton from "../NotCompletedTaskButton/NotCompletedTaskButton";
 
@@ -33,7 +32,7 @@ const Task = props => {
                     </button>
                 </div>
                 <div className="col-3 col-md-2 col-lg-1">
-                    {props.urgent === true ? <UrgentTaskButton /> : ""}
+                        {props.priority}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <div onClick={handleCompleteClick}>

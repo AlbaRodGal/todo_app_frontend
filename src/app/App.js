@@ -12,9 +12,9 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const [tasks, setTasks] = useState([
-    { text: 'Homework', category: 'learning', priority: true, completed: false, dueDate: "2020-04-01", id: 1 },
-    { text: 'Grocery', category: 'home', priority: false, completed: false, dueDate: "2020-04-02", id: 2 },
-    { text: 'Buy a new mat', category: 'home', priority: true, completed: false, dueDate: "2020-04-03", id: 3 }
+    { text: 'Homework', category: 'learning', priority: 'high', completed: false, dueDate: "2020-04-01", id: 1 },
+    { text: 'Grocery', category: 'home', priority: 'medium', completed: false, dueDate: "2020-04-02", id: 2 },
+    { text: 'Buy a new mat', category: 'home', priority: 'high', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
   const deleteTask = (id) => {
