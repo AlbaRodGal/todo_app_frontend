@@ -15,10 +15,8 @@ const Task = props => {
     };
 
     const handleCompleteClick = () => {
-        console.log(props.completed)
         props.completeTaskFunc(props.id)
     }
-
 
     return (
         <div className="container">
@@ -31,7 +29,7 @@ const Task = props => {
                 </div>
                 <div className="col-3 col-md-2 col-lg-2">
                     <button type="button" className="btn btn-info">
-                        {props.tag}
+                        {props.category}
                     </button>
                 </div>
                 <div className="col-3 col-md-2 col-lg-1">

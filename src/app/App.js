@@ -8,18 +8,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-// Click on the delete button
-// Our app needs to know this happened -> Listen to the event
-// Know which button was clicked
-// Remove the relevant todo object from our state
-
 function App() {
   const [counter, setCounter] = useState(0);
 
   const [tasks, setTasks] = useState([
-    { text: 'Homework', tag: 'learning', urgent: true, completed: false, dueDate: "2020-04-01", id: 1 },
-    { text: 'Grocery', tag: 'home', urgent: false, completed: false, dueDate: "2020-04-02", id: 2 },
-    { text: 'Buy a new mat', tag: 'home', urgent: true, completed: false, dueDate: "2020-04-03", id: 3 }
+    { text: 'Homework', category: 'learning', priority: true, completed: false, dueDate: "2020-04-01", id: 1 },
+    { text: 'Grocery', category: 'home', priority: false, completed: false, dueDate: "2020-04-02", id: 2 },
+    { text: 'Buy a new mat', category: 'home', priority: true, completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
   const deleteTask = (id) => {
@@ -29,18 +24,26 @@ function App() {
   }
   const completeTask = (id) => {
     const newTasks = tasks.map(task => {
-        if(task.id === id){
-          task.completed = true
-        }
-        return task;
-      })
-      setTasks(newTasks);
+      if (task.id === id) {
+        task.completed = true
+      }
+      return task;
+    })
+    setTasks(newTasks);
   }
 
-  //Click on the complete button
-    //Our application needs to know this happens
-    //Which button was clicked? ID
-    //Updates the relevant task in our state (completed = true)
+  const AddTask = (text, date, category, priority) => {
+    const newTask = {
+      text: text,
+      date: date,
+      category: category,
+      priority: priority,
+      id: Math.random() * 1000
+    }
+
+    const newTasks = [...tasks, newTask]
+    setTasks(newTasks);
+  }
 
   return (
     <div className="App">
@@ -49,7 +52,7 @@ function App() {
         <TaskCount count={tasks.length} />
 
         <div className="container">
-          <AddNewTask />
+          <AddNewTask AddTaskFunc={AddTask} />
         </div>
 
         <div className="container">
@@ -61,8 +64,8 @@ function App() {
                 deleteTaskFunc={deleteTask}
                 completeTaskFunc={completeTask}
                 text={task.text}
-                tag={task.tag}
-                urgent={task.urgent}
+                category={task.category}
+                priority={task.priority}
                 completed={task.completed}
                 dueDate={task.dueDate}
                 id={task.id}
