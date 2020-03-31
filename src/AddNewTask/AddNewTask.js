@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddNewTask.css";
+import Button from "../Button/Button"
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import AddTaskButton from "../AddTaskButton/AddTaskButton";
 
 
 const AddNewTask = (props) => {
@@ -20,8 +20,6 @@ const AddNewTask = (props) => {
 
     const handleDateChange = (event) => {
         setDate(event.target.value)
-
-        //NEED TO FIX DATE//
     }
 
     const handleCategoryChange = (event) => {
@@ -65,7 +63,9 @@ const AddNewTask = (props) => {
         </div>
         <div className="col-4 col-sm-2 col-md-1 col-lg-2">
             <div onClick={handleAddTask}>
-                <AddTaskButton />
+                <Button buttonStyle ={'btn--primaty--solid'}>
+                Add
+                </Button>
             </div>
         </div>
     </div>
