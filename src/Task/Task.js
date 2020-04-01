@@ -10,11 +10,6 @@ const Task = props => {
      // Create object: key is priority and value is button
      //Filter to show the correct button
 
-    const [priorities, setPriorities] = useState([
-    {level:"High", style: <Button buttonStyle={"btn--high--solid"}>{props.priority}</Button>},
-    {level: "Medium", style: <Button buttonStyle={"btn--warning--solid"}>{props.priority}</Button>},
-    {level: "Low", style: <Button buttonStyle={"btn--low--solid"}>{props.priority}</Button> }
-    ])
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -24,12 +19,9 @@ const Task = props => {
         props.completeTaskFunc(props.id);
     };
 
-    const setPriorityStyling = (id) => {
-       const prioritiesStyling = Object.priorities.filter(function(level) {
-            props.priority.includes(priorities['level'])? true : false
-        })
-        setPriorities(prioritiesStyling)
-    }
+    const prioritiesStyling = () => {
+        props.prioritiesStylingFunc(props.id)
+    }    
 
     return (
         <div className="container">
@@ -45,8 +37,8 @@ const Task = props => {
                         {props.category}
                     </Button>
                 </div>
-                <div className="col-3 col-md-2 col-lg-1">
-                        {props.PriorityStyling}
+                <div className="col-3 col-md-2 col-lg-1" onChange={prioritiesStyling}>
+                        {props.priority}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <div onClick={handleCompleteClick}>
