@@ -25,10 +25,7 @@ function App() {
     ])
 
   const prioritiesStyling = (task, priority) => {
-    const prioStyling = Object.priorities.filter(function(level) {
-         task['priority'].includes(priorities['level'])? true : false
-     })
-     setPriorities(prioStyling)
+    //need to review this function//
  }
 
   const deleteTask = (id) => {
