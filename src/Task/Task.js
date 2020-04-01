@@ -37,7 +37,7 @@ const Task = props => {
                         {props.category}
                     </Button>
                 </div>
-<<<<<<< HEAD
+
                 <div className="col-3 col-md-2 col-lg-1">
 
                     //TODO
@@ -46,10 +46,7 @@ const Task = props => {
 
                     {props.priority === 'High' ? <Button buttonStyle={"btn--danger--solid"}>High</Button>:
                             <Button buttonStyle={"btn--warning--solid"}>Medium</Button>}                    
-=======
-                <div className="col-3 col-md-2 col-lg-1" onChange={prioritiesStyling}>
-                        {props.priority}
->>>>>>> c53bec4244ae4612f4d2b85437858d7a742ffb02
+
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <div onClick={handleCompleteClick}>
