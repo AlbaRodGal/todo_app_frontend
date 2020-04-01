@@ -32,6 +32,8 @@ function App() {
     setTasks(newTasks);
   }
 
+ 
+
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
@@ -66,6 +68,7 @@ function App() {
                 text={task.text}
                 category={task.category}
                 priority={task.priority}
+                prioritiesStylingFunc={prioritiesStyling}
                 completed={task.completed}
                 dueDate={task.dueDate}
                 id={task.id}
