@@ -6,6 +6,11 @@ import Button from "../Button/Button";
 
 const Task = props => {
     
+    //TODO 
+     // Create object: key is priority and value is button
+     //Filter to show the correct button
+
+
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
     };
@@ -13,6 +18,10 @@ const Task = props => {
     const handleCompleteClick = () => {
         props.completeTaskFunc(props.id);
     };
+
+    const prioritiesStyling = () => {
+        props.prioritiesStylingFunc(props.id)
+    }    
 
     return (
         <div className="container">
@@ -28,6 +37,7 @@ const Task = props => {
                         {props.category}
                     </Button>
                 </div>
+<<<<<<< HEAD
                 <div className="col-3 col-md-2 col-lg-1">
 
                     //TODO
@@ -36,10 +46,14 @@ const Task = props => {
 
                     {props.priority === 'High' ? <Button buttonStyle={"btn--danger--solid"}>High</Button>:
                             <Button buttonStyle={"btn--warning--solid"}>Medium</Button>}                    
+=======
+                <div className="col-3 col-md-2 col-lg-1" onChange={prioritiesStyling}>
+                        {props.priority}
+>>>>>>> c53bec4244ae4612f4d2b85437858d7a742ffb02
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <div onClick={handleCompleteClick}>
-                        {props.completed === true ? <Button buttonStyle={"btn--success--solid"}>Done</Button>:
+                        {props.completed === true ? <Button buttonStyle={"btn--success--solid"}>Done</Button> :
                             <Button buttonStyle={"btn--secondary--outline"}>Pending</Button>}
                     </div>
                 </div>
