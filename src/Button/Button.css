@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(20, 20, 114);
-  --high: rgb(224, 9, 9);
+  --danger: rgb(224, 9, 9);
   --warning: orange;
   --success: rgb(21, 141, 21);
   --white: white;
@@ -35,8 +35,8 @@
   border-radius: 6px;
 }
 
-.btn--high--solid {
-  background-color: var(--high);
+.btn--danger--solid {
+  background-color: var(--danger);
   color: var(--white);
   border-radius: 6px;
 }

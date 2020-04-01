@@ -40,13 +40,9 @@ const Task = props => {
 
                 <div className="col-3 col-md-2 col-lg-1">
 
-                    //TODO
-                        //Need multiple conditional as we have 3 levels of priority//
-                        //Can't use IF
-
                     {props.priority === 'High' ? <Button buttonStyle={"btn--danger--solid"}>High</Button>:
-                            <Button buttonStyle={"btn--warning--solid"}>Medium</Button>}                    
-
+                            props.priority === 'Medium' ? <Button buttonStyle={"btn--warning--solid"}>Medium</Button>: 
+                            <Button buttonStyle={"btn--low--solid"}>Low</Button>}                 
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
                     <div onClick={handleCompleteClick}>
