@@ -18,6 +18,7 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
+
   const deleteTask = (id) => {
     const filteredTasks = tasks.filter(task => task.id !== id);
 
@@ -25,8 +26,10 @@ function App() {
   }
   const completeTask = (id) => {
     const newTasks = tasks.map(task => {
-      if (task.id === id) {
-        task.completed = true
+      if (task.id === id && task.completed === false) {
+        task.completed = true 
+      } else if (task.id ===id && task.completed === true) {
+        task.completed = false
       }
       return task;
     })
