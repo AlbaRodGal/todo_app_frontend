@@ -6,11 +6,6 @@ import Button from "../Button/Button";
 
 const Task = props => {
     
-    //TODO 
-     // Create object: key is priority and value is button
-     //Filter to show the correct button
-
-
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
     };
@@ -18,10 +13,6 @@ const Task = props => {
     const handleCompleteClick = () => {
         props.completeTaskFunc(props.id);
     };
-
-    const prioritiesStyling = () => {
-        props.prioritiesStylingFunc(props.id)
-    }    
 
     return (
         <div className="container">

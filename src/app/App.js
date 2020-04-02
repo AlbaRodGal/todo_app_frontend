@@ -18,16 +18,6 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
-  const [priorities, setPriorities] = useState([
-    {level:"High", style: <Button buttonStyle={"btn--high--solid"} />},
-    {level: "Medium", style: <Button buttonStyle={"btn--warning--solid"} />},
-    {level: "Low", style: <Button buttonStyle={"btn--low--solid"} />}
-    ])
-
-  const prioritiesStyling = (task, priority) => {
-    //need to review this function//
- }
-
   const deleteTask = (id) => {
     const filteredTasks = tasks.filter(task => task.id !== id);
 
@@ -42,8 +32,6 @@ function App() {
     })
     setTasks(newTasks);
   }
-
- 
 
   const AddTask = (text, date, category, priority) => {
     const newTask = {
@@ -79,7 +67,6 @@ function App() {
                 text={task.text}
                 category={task.category}
                 priority={task.priority}
-                prioritiesStylingFunc={prioritiesStyling}
                 completed={task.completed}
                 dueDate={task.dueDate}
                 id={task.id}
