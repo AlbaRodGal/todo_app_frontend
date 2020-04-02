@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Task.css";
 import moment from "moment";
-import EditTaskButton from "../EditTaskButton/EditTaskButton";
 import Button from "../Button/Button";
 
 const Task = props => {
+
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
     };
@@ -12,7 +12,7 @@ const Task = props => {
     const handleCompleteClick = () => {
         props.completeTaskFunc(props.id);
     };
-  
+
     return (
         <div className="container">
             <div className="row">
@@ -32,7 +32,7 @@ const Task = props => {
                     ) : props.priority === "Medium" ? (
                         <Button buttonStyle={"btn--warning--solid"}>Medium</Button>
                     ) : (
-                            <Button buttonStyle={"btn--low--solid"}>Low</Button>
+                                <Button buttonStyle={"btn--low--solid"}>Low</Button>
                             )}
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
@@ -61,11 +61,12 @@ const Task = props => {
                     </div>
                 </div>
                 <div className="col-2 col-md-1 col-lg-1">
-                    {/* //TODO:OnClick, we need to be able to delete all the fields (text, date, category, priority) */}
-                    <EditTaskButton />
+
+                    {/* //TODO: DELETE THIS COL and REASSIGN SPACE */}
+
+                </div>
                 </div>
             </div>
-        </div>
     );
 };
 

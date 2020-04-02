@@ -18,24 +18,6 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
-
-  const deleteTask = (id) => {
-    const filteredTasks = tasks.filter(task => task.id !== id);
-
-    setTasks(filteredTasks);
-  }
-  const completeTask = (id) => {
-    const newTasks = tasks.map(task => {
-      if (task.id === id && task.completed === false) {
-        task.completed = true 
-      } else if (task.id ===id && task.completed === true) {
-        task.completed = false
-      }
-      return task;
-    })
-    setTasks(newTasks);
-  }
-
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
@@ -48,6 +30,29 @@ function App() {
     const newTasks = [...tasks, newTask]
     setTasks(newTasks);
   }
+
+  const editTaskText = (id) => {
+    
+  }
+
+  const completeTask = (id) => {
+    const newTasks = tasks.map(task => {
+      if (task.id === id && task.completed === false) {
+        task.completed = true 
+      } else if (task.id ===id && task.completed === true) {
+        task.completed = false
+      }
+      return task;
+    })
+    setTasks(newTasks);
+  }
+
+  const deleteTask = (id) => {
+    const filteredTasks = tasks.filter(task => task.id !== id);
+
+    setTasks(filteredTasks);
+  }
+
 
   return (
     <div className="App">
