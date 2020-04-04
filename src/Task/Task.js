@@ -3,6 +3,7 @@ import "./Task.css";
 import moment from "moment";
 import Button from "../Button/Button";
 
+
 const Task = props => {
 
     const handleDeleteClick = () => {
@@ -13,12 +14,21 @@ const Task = props => {
         props.completeTaskFunc(props.id);
     };
 
+    const handleEditClick = () => {
+        props.editTaskFunc(props.id)
+    }
+
+
     return (
+
         <div className="container">
             <div className="row">
                 <div className="task col-8 col-md-3 col-lg-4">
-                    <p>{props.text}</p>
+                    <div>
+                        <p>{props.text}</p>
+                    </div>
                 </div>
+                
                 <div className="date col-4 col-md-2 col-lg-2">
                     {moment(props.dueDate).format("ddd, MMM D")}
                 </div>
@@ -65,8 +75,8 @@ const Task = props => {
                     {/* //TODO: DELETE THIS COL and REASSIGN SPACE */}
 
                 </div>
-                </div>
             </div>
+        </div>
     );
 };
 
