@@ -6,6 +6,8 @@ import Button from "../Button/Button";
 
 const Task = props => {
 
+    const [editingText, setEditingText] = useState('')
+
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
     };
@@ -15,20 +17,18 @@ const Task = props => {
     };
 
     const handleEditClick = () => {
-        props.editTaskFunc(props.id)
-    }
+        props.editTextTaskFunc(props.id)
+    };
+
 
 
     return (
-
         <div className="container">
             <div className="row">
-                <div className="task col-8 col-md-3 col-lg-4">
-                    <div>
-                        <p>{props.text}</p>
-                    </div>
+                <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditClick}>
+                    {props.editing === true? <input type="text" className="control-form-editing" value={editingText}  />: <p>{props.text}</p>}
                 </div>
-                
+
                 <div className="date col-4 col-md-2 col-lg-2">
                     {moment(props.dueDate).format("ddd, MMM D")}
                 </div>

@@ -7,23 +7,17 @@ import AddNewTask from "../AddNewTask/AddNewTask";
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { v4 as uuidv4 } from 'uuid';
+import { setDefaultLocale } from "react-datepicker";
 
 
 function App() {
 
-  const [counter, setCounter] = useState(0);
-
   const [tasks, setTasks] = useState([
-    { text: 'Homework', category: 'learning', priority: 'High', completed: false, dueDate: "2020-04-01", id: 1 },
-    { text: 'Grocery', category: 'home', priority: 'Medium', completed: false, dueDate: "2020-04-02", id: 2 },
+    { text: 'Homework', category: 'learning', priority: 'High', completed: false, dueDate: "2020-04-01", id: 1},
+    { text: 'Grocery', category: 'home', priority: 'Medium', completed: false, dueDate: "2020-04-02", id: 2},
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
-
-  const [editText, setEditText] = useState(false);
-  const [editDate, setEditDate] = useState(false);
-  const viewStyle = {};
-  const editStyle = {};
-
+  
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
@@ -40,8 +34,8 @@ function App() {
   const completeTask = (id) => {
     const newTasks = tasks.map(task => {
       if (task.id === id && task.completed === false) {
-        task.completed = true 
-      } else if (task.id ===id && task.completed === true) {
+        task.completed = true
+      } else if (task.id === id && task.completed === true) {
         task.completed = false
       }
       return task;
@@ -55,13 +49,15 @@ function App() {
     setTasks(filteredTasks);
   }
 
-
-  // TODO: Edit text
-    // - Need div with editingStyle where we'll have an input form so the user can make changes
-    // - Need to create a variable to handle this change of state 
-    // - Need to hide it by default and make it appear on double click 
-    // - Need to exit edit by pressing intro
-
+  const editTextTask = (id) => {
+    const editingTasks = tasks.map(task => {
+      if (task.id === id) {
+        task.editing = true;
+      }
+      return task
+    })
+    setTasks(editingTasks);
+  }
 
   return (
     <div className="App">
@@ -80,11 +76,13 @@ function App() {
               <Task
                 key={task.id}
                 deleteTaskFunc={deleteTask}
+                editTextTaskFunc={editTextTask}
                 completeTaskFunc={completeTask}
                 text={task.text}
                 category={task.category}
                 priority={task.priority}
                 completed={task.completed}
+                editing={task.editing}
                 dueDate={task.dueDate}
                 id={task.id}
               />
