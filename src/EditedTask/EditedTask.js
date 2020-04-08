@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 function EditedTask(props) {
 
-    const [editingText, setEditingText] = useState('')
+    const [editText, setEditText] = useState('')
 
     const handleEditTextChange = (event) => {
-        setEditingText(event.target.value)
+        setEditText(event.target.value)
     }
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            console.log(editingText)
+            console.log()
         }
     }
     return (
-        <input type="text" className="control-form-editing" value={editingText} onChange={handleEditTextChange} onKeyPress={handleKeyPress} />
+        <input type="text" className="control-form-editing" onChange={handleEditTextChange} onKeyPress={handleKeyPress} />
     )
 }
 export default EditedTask;

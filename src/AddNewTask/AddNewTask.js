@@ -10,6 +10,7 @@ const AddNewTask = (props) => {
     const [date, setDate] = useState('');
     const [category, setCategory] = useState('');
     const [priority, setPriority] = useState();
+    const [completed, setCompleted] = useState();
     const categoryList = ['Home', 'Learning', 'Health'];
     const priorityList = ['High', 'Medium', 'Low'];
 
@@ -41,7 +42,7 @@ const AddNewTask = (props) => {
     }
 
     const handleAddTask = () => {
-        props.AddTaskFunc(taskText, date, category, priority)
+        props.AddTaskFunc(taskText, date, category, priority, completed)
     }
 
     return <div className="row m-1">

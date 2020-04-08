@@ -7,6 +7,7 @@ import EditedTask from "../EditedTask/EditedTask";
 
 const Task = props => {
 
+    const [editingText, setEditingText] = useState(false)
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -20,7 +21,9 @@ const Task = props => {
         props.editTextTaskFunc(props.id)
     };
 
- 
+    const handleEditTextChange = (event) => {
+        setEditingText(event.target.value)
+    }
 
     return (
         <div className="container">

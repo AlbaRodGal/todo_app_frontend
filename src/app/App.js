@@ -18,12 +18,13 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
   
-  const AddTask = (text, date, category, priority) => {
+  const AddTask = (text, date, category, priority, completed) => {
     const newTask = {
       text: text,
       dueDate: date,
       category: category,
       priority: priority,
+      completed:completed,
       id: uuidv4()
     }
 
@@ -33,7 +34,7 @@ function App() {
 
   const completeTask = (id) => {
     const newTasks = tasks.map(task => {
-      if (task.id === id && task.completed === false) {
+      if (task.id === id && task.completed !== true) {
         task.completed = true
       } else if (task.id === id && task.completed === true) {
         task.completed = false
@@ -58,6 +59,8 @@ function App() {
     })
     setTasks(editingTasks);
   }
+
+ 
 
   return (
     <div className="App">
