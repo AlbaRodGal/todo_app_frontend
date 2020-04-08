@@ -18,13 +18,12 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
   
-  const AddTask = (text, date, category, priority, completed) => {
+  const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
       dueDate: date,
       category: category,
       priority: priority,
-      completed:completed,
       id: uuidv4()
     }
 
