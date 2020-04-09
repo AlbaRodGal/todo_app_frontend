@@ -59,8 +59,6 @@ function App() {
     setTasks(editingTasks);
   }
 
- 
-
   return (
     <div className="App">
       <Header />
