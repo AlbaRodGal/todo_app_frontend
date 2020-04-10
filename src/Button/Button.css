@@ -18,6 +18,11 @@
   transition: transform 0.3s ease;
 }
 
+.btn--secondary--outline:hover {
+    color: green;
+    border: 1px solid green;
+    font-weight: bold;
+  }
 
 .btn--primary--solid {
   background-color: var(--primary);
