@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/todo_app_frontend/static/css/main.52da0202.chunk.css",
+    "main.css": "/todo_app_frontend/static/css/main.1417ccf8.chunk.css",
     "main.js": "/todo_app_frontend/static/js/main.9a144df9.chunk.js",
     "main.js.map": "/todo_app_frontend/static/js/main.9a144df9.chunk.js.map",
     "runtime-main.js": "/todo_app_frontend/static/js/runtime-main.f220f31d.js",
@@ -9,10 +9,10 @@
     "static/js/2.d82d2603.chunk.js": "/todo_app_frontend/static/js/2.d82d2603.chunk.js",
     "static/js/2.d82d2603.chunk.js.map": "/todo_app_frontend/static/js/2.d82d2603.chunk.js.map",
     "index.html": "/todo_app_frontend/index.html",
-    "precache-manifest.e9260d53d1a6c336842c024ac86a7b26.js": "/todo_app_frontend/precache-manifest.e9260d53d1a6c336842c024ac86a7b26.js",
+    "precache-manifest.9bc5db2d673db4de0ea115d5cc552a63.js": "/todo_app_frontend/precache-manifest.9bc5db2d673db4de0ea115d5cc552a63.js",
     "service-worker.js": "/todo_app_frontend/service-worker.js",
     "static/css/2.0ac5b054.chunk.css.map": "/todo_app_frontend/static/css/2.0ac5b054.chunk.css.map",
-    "static/css/main.52da0202.chunk.css.map": "/todo_app_frontend/static/css/main.52da0202.chunk.css.map",
+    "static/css/main.1417ccf8.chunk.css.map": "/todo_app_frontend/static/css/main.1417ccf8.chunk.css.map",
     "static/js/2.d82d2603.chunk.js.LICENSE.txt": "/todo_app_frontend/static/js/2.d82d2603.chunk.js.LICENSE.txt",
     "static/media/font-awesome.min.css": "/todo_app_frontend/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/App.css": "/todo_app_frontend/static/media/wesley-pacifico-mPz34HvJdz8-unsplash.a4c1df65.jpg"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.f220f31d.js",
     "static/css/2.0ac5b054.chunk.css",
     "static/js/2.d82d2603.chunk.js",
-    "static/css/main.52da0202.chunk.css",
+    "static/css/main.1417ccf8.chunk.css",
     "static/js/main.9a144df9.chunk.js"
   ]
 }
