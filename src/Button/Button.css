@@ -18,6 +18,14 @@
   transition: transform 0.3s ease;
 }
 
+button:hover {
+  opacity: 70%;
+}
+
+.btn:hover{
+  color:white;
+}
+
 .btn--secondary--outline:hover {
     color: green;
     border: 1px solid green;
@@ -63,4 +71,7 @@
   background-color: var(--low);
   color: var(--white);
   border-radius: 6px;
+}
+.bi-trash-fill:hover{
+  opacity: 70%;
 }
