@@ -16,6 +16,10 @@
   border-radius: 2px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  opacity:1;
+}
+.btn:hover{
+  opacity: 0.7;
 }
 
 .btn--secondary--outline:hover {
@@ -30,20 +34,10 @@
   border-radius: 6px;
 }
 
-.btn--primary--solid:hover{
-  opacity: 70%;
-  color:white;
-}
-
 .btn--danger--solid {
   background-color: var(--danger);
   color: var(--white);
   border-radius: 6px;
-}
-
-.btn--danger--solid:hover {
-  opacity: 70%;
-  color:white;
 }
 
 .btn--warning--solid {
@@ -51,31 +45,16 @@
   color: var(--white);
   border-radius: 6px;
 }
-
-.btn--warning--solid:hover {
-  opacity: 70%;
-  color:white;
-}
-
-.btn--success--solid{
+.btn--success--solid {
   background-color: var(--success);
   color: var(--white);
   border-radius: 6px;
-}
-.btn--success--solid:hover{
-  opacity: 70%;
-  color:white;
 }
 
 .btn--info--solid {
   background-color: var(--info);
   color: var(--white);
   border-radius: 6px;
-}
-
-.btn--info--solid:hover{
-  opacity: 70%;
-  color:white;
 }
 
 .btn--secondary--outline {
@@ -90,12 +69,6 @@
   color: var(--white);
   border-radius: 6px;
 }
-
-.btn--low--solid:hover{
-  opacity: 70%;
-  color:white;
-}
-
 .bi-trash-fill:hover{
   opacity: 70%;
 }
