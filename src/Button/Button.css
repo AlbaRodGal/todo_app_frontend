@@ -18,11 +18,9 @@
   transition: transform 0.3s ease;
 }
 .btn:hover {
-  opacity: 90%;
   color: white;
 }
 .btn--secondary--outline:hover {
-    opacity: 80%;
     color: green;
     border: 1px solid green;
     font-weight: bold;
