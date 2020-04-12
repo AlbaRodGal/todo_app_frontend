@@ -10,6 +10,7 @@ const DropdownMenu = (label, defaultState, options) => {
         <select
           id={label}
           value={state}
+          
           onChange={event => setState(event.target.value)}
         >
           <option defaultValue="all">All</option>
