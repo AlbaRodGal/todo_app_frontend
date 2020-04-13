@@ -1,0 +1,7 @@
+select {
+    height: 35px;
+    width: 160px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    color: rgb(37, 36, 36);
+}

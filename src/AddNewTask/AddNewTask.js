@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./AddNewTask.css";
 import Button from "../Button/Button"
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropdownMenu";
+import PriorityDropdownMenu from "../Dropdown/PriorityDropdownMenu/PriorityDropdownMenu";
 
 
 const AddNewTask = (props) => {
@@ -9,11 +10,8 @@ const AddNewTask = (props) => {
     const [taskText, setTaskText] = useState('');
     const [date, setDate] = useState('');
     const [category, setCategory] = useState('');
-    const [priority, setPriority] = useState();
-    const categoryList = ['Home', 'Learning', 'Health'];
-    const priorityList = ['High', 'Medium', 'Low'];
-
-
+    const [priority, setPriority] = useState("");
+  
     const handleTextChange = (event) => {
         setTaskText(event.target.value)
     }
@@ -24,16 +22,6 @@ const AddNewTask = (props) => {
 
     const handleCategoryChange = (event) => {
         setCategory(event.target.value)
-    }
-
-    const CategoryDropdown = (event) => {
-        const [category, CategoryDropdown] = DropdownMenu(" ", " ", categoryList);
-        return <CategoryDropdown />
-    }
-
-    const PriorityDropdown = (event) => {
-        const [priority, PriorityDropdown] = DropdownMenu(" ", " ", priorityList);
-        return <PriorityDropdown />
     }
 
     const handlePriorityChange = (event) => {
@@ -53,12 +41,12 @@ const AddNewTask = (props) => {
         </div>
         <div className="col-4 col-sm-3 col-md-2 col-lg-2">
             <div value={category} onChange={handleCategoryChange}>
-                <CategoryDropdown />
+                <CategoryDropdownMenu />
             </div>
         </div>
         <div className="col-4 col-sm-2 col-md-2 col-lg-2">
             <div value={priority} onChange={handlePriorityChange} >
-                <PriorityDropdown />
+                <PriorityDropdownMenu />
             </div>
         </div>
         <div className="col-4 col-sm-2 col-md-1 col-lg-2">
