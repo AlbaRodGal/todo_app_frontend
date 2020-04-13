@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2aa147cff1b0779bee5c8707a4f64b88",
+    "revision": "c52f73a76b8788645a0e792e4cb87772",
     "url": "/todo_app_frontend/index.html"
   },
   {
-    "revision": "b55701ddf57f64ab6837",
+    "revision": "b7dbedb0595e510d87e0",
     "url": "/todo_app_frontend/static/css/2.0ac5b054.chunk.css"
   },
   {
-    "revision": "fac72440468a332d4515",
-    "url": "/todo_app_frontend/static/css/main.7efb0bb9.chunk.css"
+    "revision": "3212b9578e481cf7ab06",
+    "url": "/todo_app_frontend/static/css/main.accc28c9.chunk.css"
   },
   {
-    "revision": "b55701ddf57f64ab6837",
-    "url": "/todo_app_frontend/static/js/2.d82d2603.chunk.js"
+    "revision": "b7dbedb0595e510d87e0",
+    "url": "/todo_app_frontend/static/js/2.5501dcd1.chunk.js"
   },
   {
     "revision": "5356fa2f66e46e6c05e4cbe319ac7f1d",
-    "url": "/todo_app_frontend/static/js/2.d82d2603.chunk.js.LICENSE.txt"
+    "url": "/todo_app_frontend/static/js/2.5501dcd1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fac72440468a332d4515",
-    "url": "/todo_app_frontend/static/js/main.9a144df9.chunk.js"
+    "revision": "3212b9578e481cf7ab06",
+    "url": "/todo_app_frontend/static/js/main.5f30e75c.chunk.js"
   },
   {
     "revision": "bade65ba771c6eed29fc",
