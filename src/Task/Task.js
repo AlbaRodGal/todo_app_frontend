@@ -10,6 +10,7 @@ import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropd
 const Task = props => {
 
     const [editStyle, setEditStyle] = useState(false)
+    const [editText, setEditText] = useState()
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -24,18 +25,18 @@ const Task = props => {
     };
     const handleEscapeTask = (event) => {
         if(event.key === "Enter"){
-            props.defaultModeFunc(props.id)
+            props.defaultModeFunc(props.id, editText)
         }
     }
-
-
-
+    const handleTextChange = (event) =>{
+        setEditText(event.target.value)
+    }
 
     return (
         <div className="container" >
             <div className="row">
                 <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditModeClick}>
-                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask}/>: <p>{props.text}</p>}
+                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask} onChange={handleTextChange}/>: <p>{props.text}</p>}
                 </div>
 
                 <div className="date col-4 col-md-2 col-lg-2" >

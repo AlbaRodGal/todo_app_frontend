@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import './App.css';
 import Header from "../Header/Header";
 import TaskCount from "../TaskCount/TaskCount";
@@ -19,6 +19,7 @@ function App() {
   ]);
 
   const [editStyle, setEditStyle] = useState(false)
+  
 
   const AddTask = (text, date, category, priority) => {
     const newTask = {
@@ -61,10 +62,11 @@ function App() {
     })
     setTasks(editingTasks);
   }
-  const defaultMode = (id) => {
+  const defaultMode = (id, editText) => {
     const defaultView = tasks.map(task => {
       if (task.id === id) {
         task.editingMode = false;
+        task.text = editText;
       }
       return task
     });
@@ -91,7 +93,6 @@ function App() {
                 editModeFunc={editMode}
                 defaultModeFunc={defaultMode}
                 editingMode={task.editingMode}
-                // updateTextFunc={updateText}
                 completeTaskFunc={completeTask}
                 text={task.text}
                 category={task.category}
