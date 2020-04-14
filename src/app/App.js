@@ -13,11 +13,13 @@ import { setDefaultLocale } from "react-datepicker";
 function App() {
 
   const [tasks, setTasks] = useState([
-    { text: 'Homework', category: 'learning', priority: 'High', completed: false, dueDate: "2020-04-01", id: 1},
-    { text: 'Grocery', category: 'home', priority: 'Medium', completed: false, dueDate: "2020-04-02", id: 2},
+    { text: 'Homework', category: 'learning', priority: 'High', completed: false, dueDate: "2020-04-01", id: 1 },
+    { text: 'Grocery', category: 'home', priority: 'Medium', completed: false, dueDate: "2020-04-02", id: 2 },
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
-  
+
+  const [editStyle, setEditStyle] = useState(false)
+
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
@@ -26,9 +28,10 @@ function App() {
       priority: priority,
       id: uuidv4()
     }
-
-    const newTasks = [...tasks, newTask]
-    setTasks(newTasks);
+    if (newTask.text !== "" && newTask.date !== "" && newTask.category !== "" && newTask.priority !== "") {
+      const newTasks = [...tasks, newTask]
+      setTasks(newTasks);
+    }
   }
 
   const completeTask = (id) => {
@@ -49,14 +52,23 @@ function App() {
     setTasks(filteredTasks);
   }
 
-  const editTextTask = (id) => {
+  const editMode = (id) => {
     const editingTasks = tasks.map(task => {
       if (task.id === id) {
-        task.editing = true;
+        task.editingMode = true;
       }
       return task
     })
     setTasks(editingTasks);
+  }
+  const defaultMode = (id) => {
+    const defaultView = tasks.map(task => {
+      if (task.id === id) {
+        task.editingMode = false;
+      }
+      return task
+    });
+    setTasks(defaultView)
   }
 
   return (
@@ -76,13 +88,15 @@ function App() {
               <Task
                 key={task.id}
                 deleteTaskFunc={deleteTask}
-                editTextTaskFunc={editTextTask}
+                editModeFunc={editMode}
+                defaultModeFunc={defaultMode}
+                editingMode={task.editingMode}
+                // updateTextFunc={updateText}
                 completeTaskFunc={completeTask}
                 text={task.text}
                 category={task.category}
                 priority={task.priority}
                 completed={task.completed}
-                editing={task.editing}
                 dueDate={task.dueDate}
                 id={task.id}
               />

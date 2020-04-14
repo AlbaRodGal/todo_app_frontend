@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./Task.css";
 import moment from "moment";
 import Button from "../Button/Button";
-import EditedTask from "../EditedTask/EditedTask";
+import EditTextStyle from "../EditTextStyle/EditTextStyle";
+import PriorityDropdownMenu from "../Dropdown/PriorityDropdownMenu/PriorityDropdownMenu";
+import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropdownMenu"
 
 
 const Task = props => {
 
-    const [editingText, setEditingText] = useState(false)
+    const [editStyle, setEditStyle] = useState(false)
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -17,30 +19,34 @@ const Task = props => {
         props.completeTaskFunc(props.id);
     };
 
-    const handleEditClick = () => {
-        props.editTextTaskFunc(props.id)
+    const handleEditModeClick = () => {
+        props.editModeFunc(props.id)
     };
-
-    const handleEditTextChange = (event) => {
-        setEditingText(event.target.value)
+    const handleEscapeTask = (event) => {
+        if(event.key === "Enter"){
+            props.defaultModeFunc(props.id)
+        }
     }
 
+
+
+
     return (
-        <div className="container">
+        <div className="container" >
             <div className="row">
-                <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditClick} >
-                    {props.editing === true? <EditedTask />: <p>{props.text}</p>}
+                <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditModeClick}>
+                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask}/>: <p>{props.text}</p>}
                 </div>
 
-                <div className="date col-4 col-md-2 col-lg-2">
-                    {moment(props.dueDate).format("ddd, MMM D")}
+                <div className="date col-4 col-md-2 col-lg-2" >
+                    {props.editDate === true ? "" :moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
                 <div className="col-3 col-md-2 col-lg-2">
-                    <Button buttonStyle={"btn--info--solid"}>{props.category}</Button>
+                    {props.editCategory === true? "":<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
                 <div className="col-3 col-md-2 col-lg-1">
-                    {props.priority === "High" ? (
+                    {props.editPriority === true? <PriorityDropdownMenu /> : props.priority === "High" ? (
                         <Button buttonStyle={"btn--danger--solid"}>High</Button>
                     ) : props.priority === "Medium" ? (
                         <Button buttonStyle={"btn--warning--solid"}>Medium</Button>
