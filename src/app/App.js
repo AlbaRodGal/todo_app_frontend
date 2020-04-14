@@ -18,9 +18,6 @@ function App() {
     { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
   ]);
 
-  const [editStyle, setEditStyle] = useState(false)
-  
-
   const AddTask = (text, date, category, priority) => {
     const newTask = {
       text: text,
@@ -53,7 +50,7 @@ function App() {
     setTasks(filteredTasks);
   }
 
-  const editMode = (id) => {
+  const editTextMode = (id) => {
     const editingTasks = tasks.map(task => {
       if (task.id === id) {
         task.editingMode = true;
@@ -62,15 +59,38 @@ function App() {
     })
     setTasks(editingTasks);
   }
-  const defaultMode = (id, editText) => {
-    const defaultView = tasks.map(task => {
+
+  const editDateMode = (id) => {
+    const editingDate = tasks.map(task =>{
+      if(task.id === id) {
+        task.editingDate = true;
+      }
+      return task
+    })
+    setTasks(editingDate)
+  }
+  const defaultTextMode = (id, editText) => {
+    const defaultTextView = tasks.map(task => {
       if (task.id === id) {
         task.editingMode = false;
         task.text = editText;
+        
       }
       return task
     });
-    setTasks(defaultView)
+    setTasks(defaultTextView)
+  }
+
+  const defaultDateMode = (id, editDate) => {
+    const defaultDateView = tasks.map(task => {
+      if (task.id === id) {
+        task.editingDate = false;
+        task.dueDate = editDate;
+        
+      }
+      return task
+    });
+    setTasks(defaultDateView)
   }
 
   return (
@@ -90,9 +110,12 @@ function App() {
               <Task
                 key={task.id}
                 deleteTaskFunc={deleteTask}
-                editModeFunc={editMode}
-                defaultModeFunc={defaultMode}
+                editTextModeFunc={editTextMode}
+                editModeDateFunc={editDateMode}
+                defaultTextModeFunc={defaultTextMode}
+                defaultDateModeFunc={defaultDateMode}
                 editingMode={task.editingMode}
+                editingDate={task.editingDate}
                 completeTaskFunc={completeTask}
                 text={task.text}
                 category={task.category}

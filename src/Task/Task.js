@@ -9,8 +9,11 @@ import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropd
 
 const Task = props => {
 
-    const [editStyle, setEditStyle] = useState(false)
-    const [editText, setEditText] = useState()
+    const [editStyle, setEditStyle] = useState(false);
+    const [editDateStyle, setEditDateStyle] = useState(false);
+    const [editText, setEditText] = useState();
+    const [editDate, setEditDate] = useState();
+    const [editCategory, setEditCategory] = useState();
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -20,33 +23,49 @@ const Task = props => {
         props.completeTaskFunc(props.id);
     };
 
-    const handleEditModeClick = () => {
-        props.editModeFunc(props.id)
+    const handleEditTextModeClick = () => {
+        props.editTextModeFunc(props.id)
+    };
+    const handleEditDateModeClick = () => {
+        props.editModeDateFunc(props.id)
     };
     const handleEscapeTask = (event) => {
         if(event.key === "Enter"){
-            props.defaultModeFunc(props.id, editText)
+            props.defaultTextModeFunc(props.id, editText)
+        }
+    }
+    const handleEscapeDate = (event) => {
+        if(event.key === "Enter"){
+            props.defaultDateModeFunc(props.id, editDate)
         }
     }
     const handleTextChange = (event) =>{
         setEditText(event.target.value)
     }
 
+    const handleDateChange = (event) => {
+        setEditDate(event.target.value)
+    }
+    const handleCategoryChange = (event) =>{
+        console.log(event.target.value)
+        setEditCategory(event.target.value)
+    }
     return (
         <div className="container" >
             <div className="row">
-                <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditModeClick}>
+                <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditTextModeClick}>
                     {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask} onChange={handleTextChange}/>: <p>{props.text}</p>}
                 </div>
 
-                <div className="date col-4 col-md-2 col-lg-2" >
-                    {props.editDate === true ? "" :moment(props.dueDate).format("ddd, MMM Do")}
+                <div className="date col-4 col-md-2 col-lg-2" onClick={handleEditDateModeClick}>
+                    {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onKeyPress={handleEscapeDate} onChange={handleDateChange} />
+                    :moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
                 <div className="col-3 col-md-2 col-lg-2">
-                    {props.editCategory === true? "":<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
+                    {props.editingMode === true? <CategoryDropdownMenu />:<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
-                <div className="col-3 col-md-2 col-lg-1">
+                <div className="col-3 col-md-2 col-lg-1" >
                     {props.editPriority === true? <PriorityDropdownMenu /> : props.priority === "High" ? (
                         <Button buttonStyle={"btn--danger--solid"}>High</Button>
                     ) : props.priority === "Medium" ? (
