@@ -5,7 +5,7 @@ import "../dropdown.css";
 function CategoryDropdownMenu() {
   
   return (
-    <select >
+    <select>
       <option>Category</option>
       <option value="Chores">Chores</option>
       <option value="Learning">Learning</option>

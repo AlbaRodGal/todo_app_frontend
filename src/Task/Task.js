@@ -14,6 +14,7 @@ const Task = props => {
     const [editText, setEditText] = useState();
     const [editDate, setEditDate] = useState();
     const [editCategory, setEditCategory] = useState();
+    const [editPriority, setEditPriority] = useState();
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);
@@ -29,6 +30,13 @@ const Task = props => {
     const handleEditDateModeClick = () => {
         props.editModeDateFunc(props.id)
     };
+    const handleEditCategoryClick = () => {
+        props.editCategoryFunc(props.id)
+    }
+    const handleEditPriorityclick = () => {
+        props.editPriorityFunc(props.id)
+    } 
+
     const handleEscapeTask = (event) => {
         if(event.key === "Enter"){
             props.defaultTextModeFunc(props.id, editText)
@@ -39,6 +47,18 @@ const Task = props => {
             props.defaultDateModeFunc(props.id, editDate)
         }
     }
+    const handleEscapeCategory = (event) => {
+        if(event.key === "Enter"){
+            props.defaultCategoryModeFunc(props.id, editCategory)
+        }
+    }
+    const handleEscapePriority = (event) => {
+        if(event.key === "Enter"){
+            props.defaultPriorityModeFunc(props.id, editPriority)
+        }
+    }
+
+
     const handleTextChange = (event) =>{
         setEditText(event.target.value)
     }
@@ -46,9 +66,11 @@ const Task = props => {
     const handleDateChange = (event) => {
         setEditDate(event.target.value)
     }
-    const handleCategoryChange = (event) =>{
-        console.log(event.target.value)
+    const handleCategoryChange = (event) => {
         setEditCategory(event.target.value)
+    }
+    const handlePriorityChange = (event) => {
+        setEditPriority(event.target.value)
     }
     return (
         <div className="container" >
@@ -61,13 +83,13 @@ const Task = props => {
                     {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onKeyPress={handleEscapeDate} onChange={handleDateChange} />
                     :moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
-                <div className="col-3 col-md-2 col-lg-2">
-                    {props.editingMode === true? <CategoryDropdownMenu />:<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
+                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditCategoryClick} onKeyPress={handleEscapeCategory} onChange={handleCategoryChange}>
+                    {props.editingCategory === true? <CategoryDropdownMenu />:<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
-                <div className="col-3 col-md-2 col-lg-1" >
-                    {props.editPriority === true? <PriorityDropdownMenu /> : props.priority === "High" ? (
-                        <Button buttonStyle={"btn--danger--solid"}>High</Button>
+                <div className="col-3 col-md-2 col-lg-1" onClick={handleEditPriorityclick} onKeyPress={handleEscapePriority} onChange={handlePriorityChange}>
+                    {props.editingPriority === true? <PriorityDropdownMenu  /> : props.priority === "High" ? (
+                        <Button buttonStyle={"btn--danger--solid"} >High</Button>
                     ) : props.priority === "Medium" ? (
                         <Button buttonStyle={"btn--warning--solid"}>Medium</Button>
                     ) : (

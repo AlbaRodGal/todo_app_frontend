@@ -59,22 +59,41 @@ function App() {
     })
     setTasks(editingTasks);
   }
-
   const editDateMode = (id) => {
-    const editingDate = tasks.map(task =>{
-      if(task.id === id) {
+    const editingDate = tasks.map(task => {
+      if (task.id === id) {
         task.editingDate = true;
       }
       return task
     })
     setTasks(editingDate)
   }
+  const editCategoryMode = (id) => {
+    const editCat = tasks.map(task => {
+      if (task.id === id) {
+        task.editingCategory = true;
+      }
+      return task
+    })
+    setTasks(editCat);
+  }
+
+  const editPriorityMode = (id) => {
+    const editPriority = tasks.map(task => {
+      if(task.id === id){
+        task.editingPriority = true;
+      }
+      return task
+    })
+    setTasks(editPriority)
+  }
+
   const defaultTextMode = (id, editText) => {
     const defaultTextView = tasks.map(task => {
       if (task.id === id) {
         task.editingMode = false;
         task.text = editText;
-        
+
       }
       return task
     });
@@ -86,12 +105,34 @@ function App() {
       if (task.id === id) {
         task.editingDate = false;
         task.dueDate = editDate;
-        
+
       }
       return task
     });
     setTasks(defaultDateView)
   }
+
+  const defaultCategoryMode = (id, editCategory) => {
+    const defaultCategoryView = tasks.map(task => {
+      if (task.id === id) {
+        task.editingCategory = false;
+        task.category = editCategory;
+      }
+      return task
+    });
+    setTasks(defaultCategoryView)
+  }
+
+  const defaultPriorityMode = (id, editPriority) => {
+    const defaultPriorityView = tasks.map(task => {
+      if(task.id === id){
+        task.editingPriority = false;
+        task.priority = editPriority;
+      }
+      return task
+    });
+    setTasks(defaultPriorityView)
+  } 
 
   return (
     <div className="App">
@@ -112,10 +153,16 @@ function App() {
                 deleteTaskFunc={deleteTask}
                 editTextModeFunc={editTextMode}
                 editModeDateFunc={editDateMode}
+                editCategoryFunc={editCategoryMode}
+                editPriorityFunc={editPriorityMode}
                 defaultTextModeFunc={defaultTextMode}
                 defaultDateModeFunc={defaultDateMode}
+                defaultCategoryModeFunc={defaultCategoryMode}
+                defaultPriorityModeFunc={defaultPriorityMode}
                 editingMode={task.editingMode}
                 editingDate={task.editingDate}
+                editingCategory={task.editingCategory}
+                editingPriority={task.editingPriority}
                 completeTaskFunc={completeTask}
                 text={task.text}
                 category={task.category}
