@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import "./Task.css";
 import moment from "moment";
 import Button from "../Button/Button";
-import EditTextStyle from "../EditTextStyle/EditTextStyle";
 import PriorityDropdownMenu from "../Dropdown/PriorityDropdownMenu/PriorityDropdownMenu";
 import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropdownMenu"
 
 
 const Task = props => {
 
-    const [editStyle, setEditStyle] = useState(false);
-    const [editDateStyle, setEditDateStyle] = useState(false);
     const [editText, setEditText] = useState();
     const [editDate, setEditDate] = useState();
     const [editCategory, setEditCategory] = useState();
@@ -35,31 +32,29 @@ const Task = props => {
     }
     const handleEditPriorityclick = () => {
         props.editPriorityFunc(props.id)
-    } 
+    }
 
     const handleEscapeTask = (event) => {
-        if(event.key === "Enter"){
+        if (event.key === "Enter") {
             props.defaultTextModeFunc(props.id, editText)
         }
     }
     const handleEscapeDate = (event) => {
-        if(event.key === "Enter"){
+        if (event.key === "Enter") {
             props.defaultDateModeFunc(props.id, editDate)
         }
     }
     const handleEscapeCategory = (event) => {
-        if(event.key === "Enter"){
+        if (event.key === "Enter") {
             props.defaultCategoryModeFunc(props.id, editCategory)
         }
     }
     const handleEscapePriority = (event) => {
-        if(event.key === "Enter"){
+        if (event.key === "Enter") {
             props.defaultPriorityModeFunc(props.id, editPriority)
         }
     }
-
-
-    const handleTextChange = (event) =>{
+    const handleTextChange = (event) => {
         setEditText(event.target.value)
     }
 
@@ -76,19 +71,19 @@ const Task = props => {
         <div className="container" >
             <div className="row">
                 <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditTextModeClick}>
-                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask} onChange={handleTextChange}/>: <p>{props.text}</p>}
+                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask} onChange={handleTextChange} /> : <p>{props.text}</p>}
                 </div>
 
                 <div className="date col-4 col-md-2 col-lg-2" onClick={handleEditDateModeClick}>
                     {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onKeyPress={handleEscapeDate} onChange={handleDateChange} />
-                    :moment(props.dueDate).format("ddd, MMM Do")}
+                        : moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
                 <div className="col-3 col-md-2 col-lg-2" onClick={handleEditCategoryClick} onKeyPress={handleEscapeCategory} onChange={handleCategoryChange}>
-                    {props.editingCategory === true? <CategoryDropdownMenu />:<Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
+                    {props.editingCategory === true ? <CategoryDropdownMenu /> : <Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
-                <div className="col-3 col-md-2 col-lg-1" onClick={handleEditPriorityclick} onKeyPress={handleEscapePriority} onChange={handlePriorityChange}>
-                    {props.editingPriority === true? <PriorityDropdownMenu  /> : props.priority === "High" ? (
+                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditPriorityclick} onChange={handlePriorityChange} onKeyPress={handleEscapePriority}>
+                    {props.editingPriority === true ? <PriorityDropdownMenu /> : props.priority === "High" ? (
                         <Button buttonStyle={"btn--danger--solid"} >High</Button>
                     ) : props.priority === "Medium" ? (
                         <Button buttonStyle={"btn--warning--solid"}>Medium</Button>
@@ -120,11 +115,6 @@ const Task = props => {
                             />
                         </svg>
                     </div>
-                </div>
-                <div className="col-2 col-md-1 col-lg-1">
-
-                    {/* //TODO: DELETE THIS COL and REASSIGN SPACE */}
-
                 </div>
             </div>
         </div>

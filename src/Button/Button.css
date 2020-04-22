@@ -2,15 +2,17 @@
   --primary: rgb(20, 20, 114);
   --danger: rgb(224, 9, 9);
   --warning: orange;
-  --success: rgb(21, 141, 21);
+  --success: rgb(79, 146, 79);
   --white: white;
   --dark: black;
   --secondary: rgba(128, 128, 128, 0.863);
   --info: rgb(9, 147, 160);
-  --low: rgb(255, 230, 0);
+  --low: rgb(137, 179, 39);
 }
 
 .btn {
+  height: inherit;
+  width: inherit;
   font-family: sans-serif;
   font-weight: 400;
   border-radius: 2px;
@@ -26,7 +28,6 @@
 .btn--secondary--outline:hover {
     color: green;
     border: 1px solid green;
-    font-weight: bold;
   }
 
 .btn--primary--solid {
