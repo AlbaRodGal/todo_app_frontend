@@ -7,8 +7,6 @@ import AddNewTask from "../AddNewTask/AddNewTask";
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { v4 as uuidv4 } from 'uuid';
-import { setDefaultLocale } from "react-datepicker";
-
 
 function App() {
 

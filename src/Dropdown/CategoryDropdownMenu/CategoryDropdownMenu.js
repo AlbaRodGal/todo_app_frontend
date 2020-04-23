@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "../dropdown.css";
 
 
-function CategoryDropdownMenu() {
-  
+function CategoryDropdownMenu(props) {
+
   return (
-    <select>
+    <select onChange={props.handleCategoryChangeFunc}>
       <option>Category</option>
       <option value="Chores">Chores</option>
       <option value="Learning">Learning</option>

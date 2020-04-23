@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../dropdown.css";
 
-function PriorityDropdownMenu() {
+function PriorityDropdownMenu(props) {
   
   return (
-    <select>
+    <select onChange={props.handlePriorityChangeFunc}>
       <option>Priority</option>
       <option value="High">High</option>
       <option value="Medium">Medium</option>

@@ -34,56 +34,46 @@ const Task = props => {
         props.editPriorityFunc(props.id)
     }
 
-    const handleEscapeTask = (event) => {
+    const handleEnterTask = (event) => {
         if (event.key === "Enter") {
             props.defaultTextModeFunc(props.id, editText)
         }
     }
-    const handleEscapeDate = (event) => {
-        if (event.key === "Enter") {
-            props.defaultDateModeFunc(props.id, editDate)
-        }
-    }
-    const handleEscapeCategory = (event) => {
-        if (event.key === "Enter") {
-            props.defaultCategoryModeFunc(props.id, editCategory)
-        }
-    }
-    const handleEscapePriority = (event) => {
-        if (event.key === "Enter") {
-            props.defaultPriorityModeFunc(props.id, editPriority)
-        }
-    }
+
     const handleTextChange = (event) => {
         setEditText(event.target.value)
     }
 
     const handleDateChange = (event) => {
         setEditDate(event.target.value)
+        props.defaultDateModeFunc(props.id, event.target.value)
+
     }
     const handleCategoryChange = (event) => {
         setEditCategory(event.target.value)
+        props.defaultCategoryModeFunc(props.id, event.target.value)
     }
     const handlePriorityChange = (event) => {
         setEditPriority(event.target.value)
+        props.defaultPriorityModeFunc(props.id, event.target.value)
     }
     return (
         <div className="container" >
             <div className="row">
                 <div className="task col-8 col-md-3 col-lg-4" onClick={handleEditTextModeClick}>
-                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEscapeTask} onChange={handleTextChange} /> : <p>{props.text}</p>}
+                    {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEnterTask} onChange={handleTextChange} /> : <p>{props.text}</p>}
                 </div>
 
                 <div className="date col-4 col-md-2 col-lg-2" onClick={handleEditDateModeClick}>
-                    {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onKeyPress={handleEscapeDate} onChange={handleDateChange} />
+                    {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onChange={handleDateChange} />
                         : moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
-                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditCategoryClick} onKeyPress={handleEscapeCategory} onChange={handleCategoryChange}>
-                    {props.editingCategory === true ? <CategoryDropdownMenu /> : <Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
+                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditCategoryClick}>
+                    {props.editingCategory === true ? <CategoryDropdownMenu handleCategoryChangeFunc={handleCategoryChange}/> : <Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
-                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditPriorityclick} onChange={handlePriorityChange} onKeyPress={handleEscapePriority}>
-                    {props.editingPriority === true ? <PriorityDropdownMenu /> : props.priority === "High" ? (
+                <div className="col-3 col-md-2 col-lg-2" onClick={handleEditPriorityclick}>
+                    {props.editingPriority === true ? <PriorityDropdownMenu handlePriorityChangeFunc={handlePriorityChange}/> : props.priority === "High" ? (
                         <Button buttonStyle={"btn--danger--solid"} >High</Button>
                     ) : props.priority === "Medium" ? (
                         <Button buttonStyle={"btn--warning--solid"}>Medium</Button>
