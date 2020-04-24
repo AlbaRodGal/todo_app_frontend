@@ -1,6 +1,7 @@
 .form-control, .dropdown-toggle{
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .form-control{

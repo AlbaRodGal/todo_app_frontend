@@ -2,6 +2,7 @@ body{
   background-image: url(./wesley-pacifico-mPz34HvJdz8-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Raleway', sans-serif;
 }
 
 @media only screen and (max-width: 2020px){
