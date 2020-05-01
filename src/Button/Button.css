@@ -11,11 +11,12 @@
 }
 
 .btn {
-  height: inherit;
-  width: inherit;
+
+  width: 110px;
   font-family: 'Raleway', sans-serif;
+  border-radius: 5px;
+  padding: 7px 10px;
   font-weight: 400;
-  border-radius: 2px;
   cursor: pointer;
   transition: transform 0.3s ease;
   opacity:1;
@@ -34,44 +35,76 @@
   width: 150px;
   background-color: var(--primary);
   color: var(--white);
-  border-radius: 6px;
 }
 
 .btn--danger--solid {
   background-color: var(--danger);
   color: var(--white);
-  border-radius: 6px;
 }
 
 .btn--warning--solid {
   background-color: var(--warning);
   color: var(--white);
-  border-radius: 6px;
 }
 .btn--success--solid {
   background-color: var(--success);
   color: var(--white);
-  border-radius: 6px;
+  width: auto;
 }
 
 .btn--info--solid {
   background-color: var(--info);
   color: var(--white);
-  border-radius: 6px;
 }
 
 .btn--secondary--outline {
   background-color: none;
   color: var(--dark);
   border: 1px solid grey;
-  border-radius: 6px;
+  width: auto;
 }
 
 .btn--low--solid {
   background-color: var(--low);
   color: var(--white);
-  border-radius: 6px;
 }
+
+.bi-trash-fill{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.bi-trash-fill{
+  width: 2rem;
+  height: 2rem;
+}
+
 .bi-trash-fill:hover{
   opacity: 0.7;
+}
+
+@media only screen and (min-width: 999px) and (max-width: 1200px){
+  .btn{
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 999px){
+  .btn{
+    font-size: smaller;
+    width: 80px;
+  }
+  .btn--primary--solid{
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .btn{
+    font-size: smaller;
+    width: 95px;
+  }
+  .btn--primary--solid{
+    width: 50px;
+  }
 }

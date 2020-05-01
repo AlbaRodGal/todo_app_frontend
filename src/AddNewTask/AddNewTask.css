@@ -1,4 +1,4 @@
-.form-control, .dropdown-toggle{
+.form-control, .dropdown-toggle, .btn{
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: 'Raleway', sans-serif;
@@ -8,41 +8,3 @@
     font-size: smaller;
 }
 
-@media only screen and (min-width: 993px){
-    .dropdown-toggle, .btn-secondary{
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
-
-@media only screen and (max-width: 575px) and (min-width: 410px){
-    .dropdown-toggle{
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-   .btn-secondary{
-        padding-left: 40px;
-        padding-right: 40px;
-   }
-}
-
-@media only screen and (max-width: 450px){
-    .task, .date, .form-control, .btn{
-        font-size: smaller;
-    }
-    
-}
-
-@media only screen and (max-width: 410px){
-    .dropdown-toggle{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-   .btn-secondary{
-        padding-left: 20px;
-        padding-right: 20px;
-   }
-   .btn-success{
-       margin-right:-10px;
-   }
-}

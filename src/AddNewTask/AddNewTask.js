@@ -36,20 +36,20 @@ const AddNewTask = (props) => {
         <div className="col-12 col-sm-12 col-md-4 col-lg-4">
             <input type="text" className="form-control" value={taskText} onChange={handleTextChange} />
         </div>
-        <div className="col-12 col-sm-5 col-md-3 col-lg-2">
+        <div className="col--12 col-sm-5 col-md-3 col-lg-2">
             <input type="date" className="form-control" value={date} onChange={handleDateChange} />
         </div>
-        <div className="col-4 col-sm-3 col-md-2 col-lg-2">
+        <div className="col-6 col-sm-3 col-md-2 col-lg-2">
             <div value={category} onChange={handleCategoryChange}>
                 <CategoryDropdownMenu />
             </div>
         </div>
-        <div className="col-4 col-sm-2 col-md-2 col-lg-2">
+        <div className="col-6 col-sm-2 col-md-2 col-lg-2">
             <div value={priority} onChange={handlePriorityChange} >
                 <PriorityDropdownMenu />
             </div>
         </div>
-        <div className="col-4 col-sm-2 col-md-1 col-lg-2">
+        <div className="col-12 col-sm-2 col-md-1 col-lg-2">
             <div onClick={handleAddTask}>
                 <Button buttonStyle ={'btn--primaty--solid'}>
                 Add

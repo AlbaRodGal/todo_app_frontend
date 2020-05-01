@@ -11,34 +11,37 @@
     align-items: center;
 }
 .task, .date{
-    border: 2px solid whitesmoke;
-    border-radius: 10px;
-    background-color: lightgrey;
-}
-.row{
-    border: 2px solid lightgrey;
-    border-radius: 10px;
-    background-color: white;
-    margin-bottom: -25px;
-}
-
-.bi-trash-fill, .bi-pencil {
+    border: 1px solid rgba(221, 224, 224, 0.5);
+    background-color:rgba(221, 224, 224, 0.5);
+    border-radius: 5px;
+    margin: 10px;
     margin-top:10px;
     margin-bottom: 10px;
 }
-.bi-trash-fill, .bi-pencil{
-    width: 2rem;
-    height: 2rem;
+.row{
+    background-color: rgb(255,255,255,0.9);
+    margin-bottom: -25px;
 }
+
 input {
     outline: none;
     border: none;
-    background-color: lightgrey;
+    background-color:  rgba(221, 224, 224, 0.0);
     color:rgb(54, 53, 53); 
 }
 
-@media only screen and (max-width: 450px){
-    body{
-        font-size: smaller;
+@media only screen and (min-width: 790px) and (max-width: 998px){
+    .task, .date{
+      font-size: smaller;
     }
-}
+  }
+  @media only screen and (min-width: 700px) and (max-width: 790px){
+    .task, .date{
+      font-size: smaller;
+    }
+  }
+  @media only screen and (min-width: 500px) and (max-width: 700px){
+    .task, .date{
+        font-size: smaller;
+      }
+    }

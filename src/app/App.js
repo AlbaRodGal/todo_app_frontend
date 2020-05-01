@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import './App.css';
 import Header from "../Header/Header";
 import TaskCount from "../TaskCount/TaskCount";
@@ -6,46 +7,69 @@ import Task from "../Task/Task";
 import AddNewTask from "../AddNewTask/AddNewTask";
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
-  const [tasks, setTasks] = useState([
-    { text: 'Homework', category: 'learning', priority: 'High', completed: false, dueDate: "2020-04-01", id: 1 },
-    { text: 'Grocery', category: 'home', priority: 'Medium', completed: false, dueDate: "2020-04-02", id: 2 },
-    { text: 'Buy a new mat', category: 'home', priority: 'High', completed: false, dueDate: "2020-04-03", id: 3 }
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks")
+      .then(response => {
+        console.log("Success", response.data)
+        setTasks(response.data);
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
+  }, [])
 
   const AddTask = (text, date, category, priority) => {
-    const newTask = {
-      text: text,
-      dueDate: date,
-      category: category,
-      priority: priority,
-      id: uuidv4()
-    }
-    if (newTask.text !== "" && newTask.date !== "" && newTask.category !== "" && newTask.priority !== "") {
-      const newTasks = [...tasks, newTask]
-      setTasks(newTasks);
-    }
+    axios.post("https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks", {
+      Text: text,
+      DueDate: date,
+      Category: category,
+      Priority: priority
+    })
+      .then(response => {
+        const newTask = response.data;
+        if (newTask.Text !== "" && newTask.DueDate !== "" && newTask.Category !== "" && newTask.Priority !== "") {
+          const newTasks = [...tasks, newTask]
+          setTasks(newTasks)
+        }
+      })
+      .catch(err => {
+        console.log("Error", err)
+      });
   }
 
+
   const completeTask = (id) => {
-    const newTasks = tasks.map(task => {
-      if (task.id === id && task.completed !== true) {
-        task.completed = true
-      } else if (task.id === id && task.completed === true) {
-        task.completed = false
-      }
-      return task;
-    })
-    setTasks(newTasks);
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, {Completed: false})
+      .then(response => {
+        const completedTask = tasks.map(task => {
+          if (task.TaskId === id && task.Completed !== 1) {
+            task.Completed = 1
+          } else if (task.TaskId === id && task.Completed === 1) {
+            task.Completed = 0
+          }
+          return task;
+        })
+        setTasks(completedTask);
+      })
+      .catch(err => {
+        console.log("Error", err)
+      });
   }
 
   const deleteTask = (id) => {
-    const filteredTasks = tasks.filter(task => task.id !== id);
-
-    setTasks(filteredTasks);
+    axios.delete(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`)
+      .then(response => {
+        const filteredTasks = tasks.filter(task => task.TaskId !== id);
+        setTasks(filteredTasks);
+      })
+      .catch(err => {
+        console.log("API error", err);
+      });
   }
 
   const editTextMode = (id) => {
@@ -78,7 +102,7 @@ function App() {
 
   const editPriorityMode = (id) => {
     const editPriority = tasks.map(task => {
-      if(task.id === id){
+      if (task.id === id) {
         task.editingPriority = true;
       }
       return task
@@ -123,21 +147,20 @@ function App() {
 
   const defaultPriorityMode = (id, editPriority) => {
     const defaultPriorityView = tasks.map(task => {
-      if(task.id === id){
+      if (task.id === id) {
         task.editingPriority = false;
         task.priority = editPriority;
       }
       return task
     });
     setTasks(defaultPriorityView)
-  } 
+  }
 
   return (
     <div className="App">
       <Header />
       <main>
         <TaskCount count={tasks.length} />
-
         <div className="container">
           <AddNewTask AddTaskFunc={AddTask} />
         </div>
@@ -147,7 +170,7 @@ function App() {
           {tasks.map(function (task) {
             return (
               <Task
-                key={task.id}
+                key={task.TaskId}
                 deleteTaskFunc={deleteTask}
                 editTextModeFunc={editTextMode}
                 editModeDateFunc={editDateMode}
@@ -162,12 +185,12 @@ function App() {
                 editingCategory={task.editingCategory}
                 editingPriority={task.editingPriority}
                 completeTaskFunc={completeTask}
-                text={task.text}
-                category={task.category}
-                priority={task.priority}
-                completed={task.completed}
-                dueDate={task.dueDate}
-                id={task.id}
+                text={task.Text}
+                category={task.Category}
+                priority={task.Priority}
+                completed={task.Completed}
+                dueDate={task.DueDate}
+                id={task.TaskId}
               />
             );
           })}
