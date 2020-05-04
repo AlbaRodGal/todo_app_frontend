@@ -1,23 +1,28 @@
-
 .container{
     margin-top: 30px;
 }
+
 .container p, .col-md-3{
     color: black;
 }
+
 .container p, .col-md-4, .col-md-3, .col-md-1, .col-md-2{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.task, .date{
-    border: 1px solid rgba(221, 224, 224, 0.5);
-    background-color:rgba(221, 224, 224, 0.5);
-    border-radius: 5px;
-    margin: 10px;
-    margin-top:10px;
-    margin-bottom: 10px;
+
+.task, .date, .btn, .bi-trash-fill, select{
+  width: 100%
 }
+
+.task, .date, .btn{
+  margin: 5px;
+  border: 1px solid rgba(221, 224, 224, 0.5);
+  background-color: white;
+  border-radius: 3px;
+}
+
 .row{
     background-color: rgb(255,255,255,0.9);
     margin-bottom: -25px;

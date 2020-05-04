@@ -11,8 +11,7 @@
 }
 
 .btn {
-
-  width: 110px;
+  width: 100px; 
   font-family: 'Raleway', sans-serif;
   border-radius: 5px;
   padding: 7px 10px;
@@ -32,7 +31,7 @@
   }
 
 .btn--primary--solid {
-  width: 150px;
+  width: 50px;
   background-color: var(--primary);
   color: var(--white);
 }
@@ -58,9 +57,7 @@
 }
 
 .btn--secondary--outline {
-  background-color: none;
   color: var(--dark);
-  border: 1px solid grey;
   width: auto;
 }
 
@@ -89,20 +86,11 @@
     font-size: smaller;
     width: 80px;
   }
-  .btn--primary--solid{
-    width: 50px;
-  }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 900px){
   .btn{
     font-size: smaller;
-    width: 80px;
   } 
 }
 
-@media only screen and (max-width: 1000px){
-  .btn--primary--solid{
-    width: 50px;
-  }
-}

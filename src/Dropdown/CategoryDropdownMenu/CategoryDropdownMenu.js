@@ -10,7 +10,6 @@ function CategoryDropdownMenu(props) {
       <option value="Chores">Chores</option>
       <option value="Learning">Learning</option>
       <option value="Finances">Finances</option>
-      <option value="Appointments">Appointments</option>
     </select>
   )
 }

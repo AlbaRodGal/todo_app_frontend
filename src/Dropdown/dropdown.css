@@ -1,22 +1,16 @@
 select {
     font-family: 'Raleway', sans-serif;
-    height: 34px;
-    width: 170px;
+    height: 40px;
     border: 1px solid lightgray;
+    border-radius: 3px;
     background-color: white;
     color: rgb(92, 90, 90);
+    border: 1px solid rgba(221, 224, 224, 0.5);
 }
-
-@media only screen and (min-width: 999px) and (max-width: 1200px){
-    select{
-      width: 130px;
-    }
-  }
 
 @media only screen and (min-width: 790px) and (max-width: 998px){
     select{
       font-size: smaller;
-      width: 100px;
     }
   }
   @media only screen and (min-width: 700px) and (max-width: 790px){
