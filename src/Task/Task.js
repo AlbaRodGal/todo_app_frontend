@@ -9,9 +9,9 @@ import CategoryDropdownMenu from "../Dropdown/CategoryDropdownMenu/CategoryDropd
 const Task = props => {
 
     const [editText, setEditText] = useState();
-    const [editDate, setEditDate] = useState();
-    const [editCategory, setEditCategory] = useState();
-    const [editPriority, setEditPriority] = useState();
+    const [setEditDate] = useState();
+    const [setEditCategory] = useState();
+    const [setEditPriority] = useState();
 
     const handleDeleteClick = () => {
         props.deleteTaskFunc(props.id);

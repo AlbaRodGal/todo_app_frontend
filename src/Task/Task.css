@@ -24,10 +24,12 @@
 }
 
 input {
-    outline: none;
-    border: none;
-    background-color:  rgba(221, 224, 224, 0.0);
-    color:rgb(54, 53, 53); 
+  width: inherit;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color:  rgba(221, 224, 224, 0.0);
+  color:rgb(54, 53, 53); 
 }
 
 @media only screen and (min-width: 790px) and (max-width: 998px){

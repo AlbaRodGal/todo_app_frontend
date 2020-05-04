@@ -44,7 +44,7 @@ function App() {
 
 
   const completeTask = (id) => {
-    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, {Completed: false})
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Completed: false })
       .then(response => {
         const completedTask = tasks.map(task => {
           if (task.TaskId === id && task.Completed !== 1) {
@@ -74,13 +74,14 @@ function App() {
 
   const editTextMode = (id) => {
     const editingTasks = tasks.map(task => {
-      if (task.id === id) {
+      if (task.TaskId === id) {
         task.editingMode = true;
       }
       return task
     })
     setTasks(editingTasks);
   }
+
   const editDateMode = (id) => {
     const editingDate = tasks.map(task => {
       if (task.id === id) {
@@ -90,6 +91,7 @@ function App() {
     })
     setTasks(editingDate)
   }
+
   const editCategoryMode = (id) => {
     const editCat = tasks.map(task => {
       if (task.id === id) {
@@ -111,49 +113,71 @@ function App() {
   }
 
   const defaultTextMode = (id, editText) => {
-    const defaultTextView = tasks.map(task => {
-      if (task.id === id) {
-        task.editingMode = false;
-        task.text = editText;
-
-      }
-      return task
-    });
-    setTasks(defaultTextView)
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Text: editText })
+      .then(response => {
+        const defaultTextView = tasks.map(task => {
+          if (task.TaskId === id) {
+            task.editingMode = false;
+            task.Text = editText;
+          }
+          return task
+        });
+        setTasks(defaultTextView)
+      })
+      .catch(err => {
+        console.log("Error", err)
+      })
   }
 
   const defaultDateMode = (id, editDate) => {
-    const defaultDateView = tasks.map(task => {
-      if (task.id === id) {
-        task.editingDate = false;
-        task.dueDate = editDate;
-
-      }
-      return task
-    });
-    setTasks(defaultDateView)
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { DueDate: editDate })
+      .then(response => {
+        const defaultDateView = tasks.map(task => {
+          if (task.TaskId === id) {
+            task.editingDate = false;
+            task.DueDate = editDate;
+          }
+          return task
+        });
+        setTasks(defaultDateView)
+      })
+      .catch(err => {
+        console.log("Error", err)
+      })
   }
 
   const defaultCategoryMode = (id, editCategory) => {
-    const defaultCategoryView = tasks.map(task => {
-      if (task.id === id) {
-        task.editingCategory = false;
-        task.category = editCategory;
-      }
-      return task
-    });
-    setTasks(defaultCategoryView)
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { DueDate: editCategory })
+      .then(response => {
+        const defaultCategoryView = tasks.map(task => {
+          if (task.TaskId === id) {
+            task.editingCategory = false;
+            task.Category = editCategory;
+          }
+          return task
+        });
+        setTasks(defaultCategoryView)
+      })
+      .catch(err => {
+        console.log("Error", err)
+      })
   }
 
   const defaultPriorityMode = (id, editPriority) => {
-    const defaultPriorityView = tasks.map(task => {
-      if (task.id === id) {
-        task.editingPriority = false;
-        task.priority = editPriority;
-      }
-      return task
-    });
-    setTasks(defaultPriorityView)
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { DueDate: editPriority })
+      .then(response => {
+        const defaultPriorityView = tasks.map(task => {
+          if (task.TaskId === id) {
+            task.editingPriority = false;
+            task.Priority = editPriority;
+          }
+          return task
+        });
+        setTasks(defaultPriorityView)
+      })
+      .catch(err => {
+        console.log("Error", err)
+      })
   }
 
   return (

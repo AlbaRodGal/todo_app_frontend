@@ -83,13 +83,8 @@
   opacity: 0.7;
 }
 
-@media only screen and (min-width: 999px) and (max-width: 1200px){
-  .btn{
-    width: 100px;
-  }
-}
 
-@media only screen and (min-width: 700px) and (max-width: 999px){
+@media only screen and (min-width: 900px) and (max-width: 1200){
   .btn{
     font-size: smaller;
     width: 80px;
@@ -99,11 +94,14 @@
   }
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (min-width: 500px) and (max-width: 900px){
   .btn{
     font-size: smaller;
-    width: 95px;
-  }
+    width: 80px;
+  } 
+}
+
+@media only screen and (max-width: 1000px){
   .btn--primary--solid{
     width: 50px;
   }
