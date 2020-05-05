@@ -44,7 +44,7 @@ function App() {
 
 
   const completeTask = (id) => {
-    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Completed: 0 })
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Completed: true })
       .then(response => {
         const completedTask = tasks.map(task => {
           if (task.TaskId === id && task.Completed !== 1) {

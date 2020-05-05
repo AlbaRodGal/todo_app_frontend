@@ -1,51 +1,28 @@
-.add-date, .form-control, .dropdown-toggle, .btn{
+.add-date, .form-control, select, option, .btn{
+    text-align: center;
     font-family: 'Raleway', sans-serif;
     border: 1px solid rgba(221, 224, 224, 0.5);
     height: 40px;
     border-radius: 3px;
     margin: 5px;
 }
-.form-control{
-    width: 100%; 
-    margin-left: -10px;
-}
 .add-date{
     background-color: white;
     border: 1px solid rgba(221, 224, 224, 0.5);
-    width: 100%;
-    margin-left: 20px;
-}
-select{
-    width: 100%;
-    margin-left: 35px;
 }
 
+
 @media only screen and (max-width:1200px){
-    .form-control, .add-date, select, .btn{
-        font-size: 14px;
-    }
-    .add-date{
-        width:120%;
-        padding-left: 15px;
-    }
-    .btn--primary--solid{
-        margin-left: 20px;
-    }
-    .form-control{
-        margin-right: -10px;
+   .col-md-4, .col-md-3, .col-md-2, .col-md-1{
+       width: 200px;
+       margin-left: 5px;
+       margin-right: 5px;
     }
 }
 @media only screen and (max-width:1000px){
-    .btn--primary--solid, select, .add-date{
-        margin-left: -5px;
-        margin-right: -2px;
-    }
-    select{
-        width: auto;
-    }
-}
-@media only screen and (max-width:770px){
-    select{
-        width: auto;
-    }
-}
+    .col-md-4, .col-md-3, .col-md-2, .col-md-1{
+        width: 150px;
+        margin-left: 5px;
+        margin-right: 5px;
+     }
+ }
