@@ -45,16 +45,13 @@ const Task = props => {
     }
 
     const handleDateChange = (event) => {
-        setEditDate(event.target.value)
         props.defaultDateModeFunc(props.id, event.target.value)
 
     }
     const handleCategoryChange = (event) => {
-        setEditCategory(event.target.value)
         props.defaultCategoryModeFunc(props.id, event.target.value)
     }
     const handlePriorityChange = (event) => {
-        setEditPriority(event.target.value)
         props.defaultPriorityModeFunc(props.id, event.target.value)
     }
     return (

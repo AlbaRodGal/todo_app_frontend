@@ -44,7 +44,7 @@ function App() {
 
 
   const completeTask = (id) => {
-    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Completed: false })
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Completed: 0 })
       .then(response => {
         const completedTask = tasks.map(task => {
           if (task.TaskId === id && task.Completed !== 1) {
@@ -84,7 +84,7 @@ function App() {
 
   const editDateMode = (id) => {
     const editingDate = tasks.map(task => {
-      if (task.id === id) {
+      if (task.TaskId === id) {
         task.editingDate = true;
       }
       return task
@@ -94,7 +94,7 @@ function App() {
 
   const editCategoryMode = (id) => {
     const editCat = tasks.map(task => {
-      if (task.id === id) {
+      if (task.TaskId === id) {
         task.editingCategory = true;
       }
       return task
@@ -104,7 +104,7 @@ function App() {
 
   const editPriorityMode = (id) => {
     const editPriority = tasks.map(task => {
-      if (task.id === id) {
+      if (task.TaskId === id) {
         task.editingPriority = true;
       }
       return task
@@ -147,7 +147,7 @@ function App() {
   }
 
   const defaultCategoryMode = (id, editCategory) => {
-    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { DueDate: editCategory })
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Category: editCategory })
       .then(response => {
         const defaultCategoryView = tasks.map(task => {
           if (task.TaskId === id) {
@@ -164,7 +164,7 @@ function App() {
   }
 
   const defaultPriorityMode = (id, editPriority) => {
-    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { DueDate: editPriority })
+    axios.put(`https://uu2xin8f44.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, { Priority: editPriority })
       .then(response => {
         const defaultPriorityView = tasks.map(task => {
           if (task.TaskId === id) {
