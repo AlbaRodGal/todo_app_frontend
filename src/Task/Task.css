@@ -1,12 +1,12 @@
-.container{
+.container-fluid{
     margin-top: 30px;
 }
 
-.container p, .col-md-3{
+.container-fluid p, .col-md-3{
     color: black;
 }
 
-.container p, .col-md-4, .col-md-3, .col-md-1, .col-md-2{
+.container-fluid p, .col-md-4, .col-md-3, .col-md-2, .col-md-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
   border-radius: 3px;
 }
 
-.row{
+.row {
     background-color: rgb(255,255,255,0.9);
     margin-bottom: -25px;
 }
@@ -30,22 +30,25 @@ input {
   text-align: center;
   outline: none;
   border: none;
-  background-color:  rgba(221, 224, 224, 0.0);
+  background-color:  white;
   color:rgb(54, 53, 53); 
 }
 
-@media only screen and (max-width:1000px){
-  .col-md-3, .col-md-2, .col-md-1{
-      width: 150px;
-      margin-left: 7px;
-      margin-right: 7px;
-   }
+  @media only screen and (max-width:500px) {
+  .container-fluid {
+    width: 100%;
+  }
+  .items{
+    align-content: center;
+    text-align: center;
+  }
+  
+  #taskText, #taskDate, #taskCategory, #taskPriority,  #deleteIcon {
+    height: 60px;
+    border-top: 1px solid lightgray;
+    margin:0;
+  }
+ 
 }
-@media only screen and (max-width:1000px){
-  .col-md-4, .col-md-3, .col-md-2, .col-md-1{
-      width: 150px;
-      margin-left: 5px;
-      margin-right: 5px;
-   }
-}
+
 

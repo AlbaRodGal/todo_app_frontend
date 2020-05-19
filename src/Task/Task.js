@@ -55,21 +55,21 @@ const Task = props => {
         props.defaultPriorityModeFunc(props.id, event.target.value)
     }
     return (
-        <div className="container" >
-            <div className="row">
-                <div className="task col-12 col-md-3 col-lg-5" onClick={handleEditTextModeClick}>
+        <div className="container-fluid">
+            <div className="row items">
+                <div className="col-12 col-md-3 col-lg-5" id="taskText" onClick={handleEditTextModeClick}>
                     {props.editingMode === true ? <input type="text" defaultValue={props.text} onKeyPress={handleEnterTask} onChange={handleTextChange} /> : <p>{props.text}</p>}
                 </div>
 
-                <div className="date col-3 col-md-2 col-lg-2" onClick={handleEditDateModeClick}>
+                <div className="col-12 col-md-2 col-lg-2" id="taskDate" onClick={handleEditDateModeClick}>
                     {props.editingDate === true ? <input type="date" defaultValue={props.date} className="date" onChange={handleDateChange} />
                         : moment(props.dueDate).format("ddd, MMM Do")}
                 </div>
-                <div className="col-3 col-md-2 col-lg-1" onClick={handleEditCategoryClick}>
+                <div className="col-4 col-md-2 col-lg-1" id="taskCategory" onClick={handleEditCategoryClick}>
                     {props.editingCategory === true ? <CategoryDropdownMenu handleCategoryChangeFunc={handleCategoryChange}/> : <Button buttonStyle={"btn--info--solid"}>{props.category}</Button>}
                 </div>
 
-                <div className="col-3 col-md-2 col-lg-1" onClick={handleEditPriorityclick}>
+                <div className="col-4 col-md-2 col-lg-1" id="taskPriority" onClick={handleEditPriorityclick}>
                     {props.editingPriority === true ? <PriorityDropdownMenu handlePriorityChangeFunc={handlePriorityChange}/> : props.priority === "High" ? (
                         <Button buttonStyle={"btn--danger--solid"} >High</Button>
                     ) : props.priority === "Medium" ? (
@@ -78,16 +78,14 @@ const Task = props => {
                                 <Button buttonStyle={"btn--low--solid"}>Low</Button>
                             )}
                 </div>
-                <div className="col-3 col-md-2 col-lg-1">
-                    <div onClick={handleCompleteClick}>
+                <div className="col-4 col-md-2 col-lg-1" id="taskPriority" onClick={handleCompleteClick}>
                         {props.completed === 1 ? (
                             <Button buttonStyle={"btn--success--solid"}>Done</Button>
                         ) : (
                                 <Button buttonStyle={"btn--secondary--outline"}>Pending</Button>
                             )}
-                    </div>
                 </div>
-                <div className="col-12 col-md-1 col-lg-1">
+                <div className="col-12 col-md-1-trash col-lg-1" id="deleteIcon">
                     <div onClick={handleDeleteClick}>
                         <svg
                             className="bi bi-trash-fill"

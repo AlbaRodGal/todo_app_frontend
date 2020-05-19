@@ -14,7 +14,7 @@
   width: 100px; 
   font-family: 'Raleway', sans-serif;
   border-radius: 5px;
-  padding: 7px 10px;
+  /* padding: 7px 10px; */
   font-weight: 400;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -79,3 +79,4 @@
 .bi-trash-fill:hover{
   opacity: 0.7;
 }
+

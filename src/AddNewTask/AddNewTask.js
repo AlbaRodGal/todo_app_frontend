@@ -32,25 +32,25 @@ const AddNewTask = (props) => {
         props.AddTaskFunc(taskText, date, category, priority)
     }
 
-    return <div className="container" >
-        <div className="row">
-            <div className="col-12 col-sm-12 col-md-4 col-lg-5">
-                <input type="text" className="form-control" value={taskText} onChange={handleTextChange} />
+    return <div className="container-fluid" >
+        <div className="row items">
+            <div className="col-12 col-sm-12 col-md-4 col-lg-5" id="taskText">
+                <input type="text" className="form-control" placeholder="Add here your task" value={taskText} onChange={handleTextChange} />
             </div>
-            <div className="col-12 col-sm-5 col-md-3 col-lg-2">
+            <div className="col-12 col-sm-5 col-md-3 col-lg-2" id="taskDate"> 
                 <input type="date" className="add-date" value={date} onChange={handleDateChange} />
             </div>
-            <div className="col-6 col-sm-3 col-md-2 col-lg-2">
+            <div className="col-6 col-sm-3 col-md-2 col-lg-2" id="taskCategory">
                 <div value={category} onChange={handleCategoryChange}>
                     <CategoryDropdownMenu />
                 </div>
             </div>
-            <div className="col-6 col-sm-2 col-md-1 col-lg-1">
+            <div className="col-6 col-sm-2 col-md-1 col-lg-1" id="taskPriority">
                 <div value={priority} onChange={handlePriorityChange} >
                     <PriorityDropdownMenu />
                 </div>
             </div>
-            <div className="col-12 col-sm-2 col-md-1 col-lg-1">
+            <div className="col-12 col-sm-2 col-md-1 col-lg-1" id="add">
                 <div onClick={handleAddTask}>
                     <Button buttonStyle={'btn--primaty--solid'}>
                         Add

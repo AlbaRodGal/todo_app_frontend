@@ -20,9 +20,21 @@
     }
 }
 @media only screen and (max-width:1000px){
-    .col-md-4, .col-md-3, .col-md-2, .col-md-1{
+    .col-m-4, .col-m-3, .col-m-2, .col-m-1{
         width: 150px;
         margin-left: 5px;
         margin-right: 5px;
      }
  }
+
+ @media only screen and (max-width:500px) {
+    .container-fluid {
+      width: 100%;
+    }
+    
+    #taskText, #taskDate, #taskCategory, #taskPriority, #add {
+      height: 60px;
+      border-top: 1px solid lightgray;
+      margin:0;
+    }
+  }
