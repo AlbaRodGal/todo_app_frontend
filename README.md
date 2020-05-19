@@ -6,12 +6,12 @@ The hosted version of the application is available here: hhttps://AlbaRodGal.git
 # Technology Used
 This project uses the following technology:
 
-ReactJS
-JavaScript (ES2015+)
-CSS
-Webpack
-Axios
-ESLint
+- ReactJS
+- JavaScript (ES2015+)
+- CSS
+- Webpack
+- Axios
+- ESLint
 
 It has been designed and built with mobile-first reponsive principles in mind.
 
