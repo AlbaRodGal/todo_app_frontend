@@ -19,11 +19,13 @@ Running the application locally
 Node.js must be installed if not already.
 
 Clone the application and install dependencies:
-
+```
 npm install
+```
 To start the application:
-
+```
 npm start
+```
 The application will then be accessible at:
 
 http://localhost:3000
