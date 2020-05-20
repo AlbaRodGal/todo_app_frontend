@@ -3,6 +3,17 @@ This is the front end of a Todo Application, built throughout the Tech Returners
 
 The hosted version of the application is available here: https://AlbaRodGal.github.io/todo_app_frontend/
 
+# WebApp
+
+![WebApp](https://github.com/AlbaRodGal/todo_app_frontend/blob/master/resources/web.jpeg)
+
+# MobileApp
+
+![MobileApp](https://github.com/AlbaRodGal/todo_app_frontend/blob/master/resources/mobile.jpeg)
+
+
+
+
 # Technology Used
 This project uses the following technology:
 
